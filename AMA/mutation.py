@@ -22,8 +22,8 @@ def two_opt_mutation(tour, D):
         return 0.0
 
     # Pick two non-adjacent edges (a->b) and (c->d)
-    a = np.random.radiat(N)
-    c = np.random.radiant(N)
+    a = np.random.randint(N)
+    c = np.random.randint(N)
 
     while (
         c == a or
