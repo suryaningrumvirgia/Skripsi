@@ -12,8 +12,8 @@ This module implements mutation operators for TSP tours.
 @njit(cache=True)
 def two_opt_mutation(tour, D):
     """
-    Perform a random displacement mutation on a tour in (2, N) edge-map representation.
-    Removes a node from its current position and inserts it after another node.
+    Perform a random 2-opt mutation on a tour in (2, N) edge-map representation.
+    Randomly selects two non-adjacent edges and reverses the segment between them.
     
     Returns the cost delta (negative means improvement).
     """
