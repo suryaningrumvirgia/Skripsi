@@ -7,14 +7,17 @@ from tsp.subtours import make_subtour, initialize_subtours, repair_tour
 """
 CROSSOVER OPERATORS:
 
-This module implements crossover operators for ATSP tours:
-1. MPX (Maximal Preservative Crossover)
-2. EAX (Edge Assembly Crossover)
-3. GPX (Generalized Partition Crossover)
-4. ERX (Edge Recombination Crossover)
-5. SCX (Sequential Constructive Crossover)
+This module implements OX (Order Crossover) operators for ATSP tours
 """
 
+@njit(cache=True)
+def OX(parent1, parent2, distance_matrix):
+    child = parent1.copy()
+
+    child[0, parent1[0] != parent2[0]] = -1
+    child[1, parent1[1] != parent2[1]] = -1
+
+    
 
 @njit(cache=True)
 def MPX(parent1, parent2, distance_matrix):
@@ -36,9 +39,7 @@ def MPX(parent1, parent2, distance_matrix):
     # If the greedy subcycle recombination encounters a situation where all options are infinite,
     # then it will produce an invalid tour.
     # In that case, return the first parent as fallback.
-    if not is_valid_tour(child):
-        return parent1, tour_cost(parent1, distance_matrix)
-
+    if not is_valid_tour(child): 
     cost = tour_cost(child, distance_matrix)
 
     return child, cost
