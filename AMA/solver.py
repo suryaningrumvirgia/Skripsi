@@ -5,8 +5,8 @@ from typing import NamedTuple
 from tsp.representation import tour_cost, is_valid_tour, to_city_order, hamming_distance
 from tsp.greedy import greedy_cycle
 from tsp.selection import tournament_selection, rank_selection, fitness_sharing
-from tsp.crossover import MPX, EAX, GAPX
-from tsp.mutation import double_bridge, reverse, k_segment_perturbation
+from tsp.crossover import OX
+from tsp.mutation import two_opt_optimation
 from tsp.search import precompute_candidates, lso, LSO_2OPT, LSO_3OPT, LSO_OROPT
 from tsp.reporter import Reporter
 
