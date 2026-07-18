@@ -52,12 +52,14 @@ try:
     print(f"\n--- MATRIKS WAKTU TEMPUH n x n ({jumlah_titik}x{jumlah_titik}) DALAM MENIT ---")
     print(df_waktu) # Menampilkan seluruh matriks n x n
 
+    os.makedirs("data", exist_ok=True)
+
     # Menyimpan output matriks ke file Excel
-    df_waktu.to_excel('Output_Matriks_Waktu.xlsx')
+    df_waktu.to_excel(f"data/Output_Matriks_Waktu.xlsx", index=False)
 
     # Menyimpan output matriks dalam detik ke file Excel
     df_waktu_detik = pd.DataFrame(matriks_waktu_detik)
-    df_waktu_detik.to_excel('Matriks_Waktu_Detik.xlsx')
+    df_waktu_detik.to_excel(f"data/Matriks_Waktu_Detik.xlsx", index=False)
 
 except requests.exceptions.ConnectionError:
     print("Gagal terhubung! Pastikan Docker OSRM sudah 'Up' dan port 5000 terbuka.")

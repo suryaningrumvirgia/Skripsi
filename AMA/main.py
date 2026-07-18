@@ -87,8 +87,9 @@ def main():
     # ==========================================
     # 1. PERSIAPAN DATA UTAMA (GLOBAL)
     # ==========================================
-    NAMA_FILE_MATRIKS = "Matriks_Waktu_Detik.xlsx"
-    NAMA_FILE_PELANGGAN = "DATA.xlsx"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    NAMA_FILE_PELANGGAN = os.path.join(BASE_DIR, "data", "DATA.xlsx")
+    NAMA_FILE_MATRIKS = os.path.join(BASE_DIR, "data", "Matriks_Waktu_Detik.xlsx")
     time_matrix_global, demands_global, sla_limits_global, num_customers, num_static, df_customers, df_statis, df_dinamis, last_order_statis = muat_data_excel(NAMA_FILE_MATRIKS, NAMA_FILE_PELANGGAN)
 
     param_dasar = {
