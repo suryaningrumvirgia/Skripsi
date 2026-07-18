@@ -1,281 +1,519 @@
-import numpy as np
 import time
+import numpy as np
 from numba import njit, prange
 from typing import NamedTuple
-from tsp.representation import tour_cost, is_valid_tour, to_city_order, hamming_distance
-from tsp.greedy import greedy_cycle
-from tsp.selection import tournament_selection, rank_selection, fitness_sharing
-from tsp.crossover import OX
-from tsp.mutation import two_opt_optimation
-from tsp.search import precompute_candidates, lso, LSO_2OPT, LSO_3OPT, LSO_OROPT
-from tsp.reporter import Reporter
+import pandas as pd
+
+from simulator import hitung_detail_rute
+from search import AdaptiveLocalSearch
+from fitness import fitness
+from selection import select_parents
+from crossover import OX
+from random_immigrant import apply_random_immigrant_scheme
+from reporter import Reporter
+from mutation import two_opt_mutation
 
 
 class Config(NamedTuple):
-    distance_matrix: np.ndarray
-    candidates: np.ndarray
+    time_matrix: np.ndarray
+    demands: np.ndarray
+    sla_limits: np.ndarray
+    max_capacity: float
+    penalty_rate: float
+    service_time: float
+    start_time: float
     population_size: int
-    offspring_size: int
-    init_temp: float
-    tournament_size: int
-    window_size: int
-    mutation_rates: np.ndarray
-    search_iters: np.ndarray
+    pc: float
+    pm: float
+    ns_max: int
+    ls_size: int
+    delta: float
+    time_matrix_global: np.ndarray = None
+    customer_map: list = None
+    pelanggan_baru: list = None
+    time_matrix_global: np.ndarray = None
+    customer_map: list = None
+    pelanggan_baru: list = None
+    dist_to_depot: np.ndarray = None
+    dist_from_depot: np.ndarray = None
+    is_new_customer: np.ndarray = None
+    initial_load: float = 0.0
 
 
-class MemeticATSP:
-    def __init__(
-        self,
-        distance_matrix: np.ndarray,
-        population_size: int = 128,
-        offspring_size: int = 128,
-        init_temp: float = 0.05,
-        tournament_size: int = 4,
-        window_size: int = 100,
-        mutation_rates: tuple = (0.25, 0.25), # (double_bridge, reverse)
-        search_iterations: tuple = (1, 1, 1), # (3opt, oropt, 2opt)
-    ):
+class MemeticSolver:
+    def __init__(self, config: Config):
+        self.config = config
+        self.num_customers = config.time_matrix.shape[0] - 1
+
         self.population = None
         self.fitness = None
-        self.age = None
         self.global_best_tour = None
         self.global_best_fitness = np.inf
-        self.latest_offspring = None
-        self.config = None
+
         self.generation = 0
-        self.timings = {
-            'offspring': 0.0,
-            'mutation': 0.0,
-            'search': 0.0,
-            'elimination': 0.0
-        }
-        self.config = Config(
-            distance_matrix=distance_matrix,
-            candidates=precompute_candidates(distance_matrix, num_candidates=20),
-            population_size=population_size,
-            offspring_size=offspring_size,
-            init_temp=init_temp,
-            tournament_size=tournament_size,
-            window_size=window_size,
-            mutation_rates=np.array(mutation_rates, dtype=np.float64),
-            search_iters=np.array(search_iterations, dtype=np.int64),
+        self.als = AdaptiveLocalSearch(time_matrix=config.time_matrix, delta=config.delta)
+
+        self.als.history = []
+        self.neighbor_history = []
+        self.als.generation_history = []
+        self.evolution_log = []
+
+        self.reporter = Reporter("results/log.json")
+
+    def initialize(self, customer_map=None, init_phase="static", seed=None):
+        static_idx = np.arange(1, self.config.time_matrix.shape[0], dtype=np.int32)
+
+        self.population = np.empty((self.config.population_size, self.num_customers), dtype=np.int32)
+
+        for i in range(self.config.population_size):
+            tour = np.copy(static_idx)
+            np.random.shuffle(tour)
+            self.population[i] = tour
+
+        self.reporter.save_initial_population(
+            self.population,
+            self.config.start_time,
+            customer_map=customer_map,
+            init_phase=init_phase,
+            seed=seed
         )
 
-    def initialize(self):
-        """Initialize the population."""
-        self.population = initialization(self.config)
         self._update_fitness()
-        self.age = np.zeros(self.config.population_size, dtype=np.int64)
-        self.generation = 0
         self._update_global_best()
 
     def _update_fitness(self):
-        """Update fitness values for the population."""
-        self.fitness = np.array(
-            [tour_cost(tour, self.config.distance_matrix) for tour in self.population]
-        )
+        self.fitness = np.array([
+            fitness(
+                giant_tour=tour,
+                time_matrix=self.config.time_matrix,
+                q_array=self.config.demands,
+                sla_limit_array=self.config.sla_limits,
+                start_time=self.config.start_time,
+                max_capacity=self.config.max_capacity,
+                penalty_rate=self.config.penalty_rate,
+                service_time=self.config.service_time
+            )
+            for tour in self.population
+        ])
 
     def _update_global_best(self):
-        """Update global best if a better solution is found."""
-        current_best_idx = np.argmin(self.fitness)
-        current_best_fitness = self.fitness[current_best_idx]
-        if current_best_fitness < self.global_best_fitness:
-            self.global_best_fitness = current_best_fitness
-            self.global_best_tour = self.population[current_best_idx].copy()
+        idx = np.argmin(self.fitness)
+
+        if self.fitness[idx] < self.global_best_fitness:
+            self.global_best_fitness = self.fitness[idx]
+            self.global_best_tour = self.population[idx].copy()
 
     def step(self):
-        """Run one generation of the EA."""
-        # Offspring generation
-        t_start = time.perf_counter()
-        offspring, offspring_fitness = generate_offspring(
-            self.population, self.fitness, self.config
+        offspring, offspring_fit, all_parents, all_children, all_mutations = generate_offspring(
+            self.population,
+            self.fitness,
+            self.config.population_size,
+            self.config.pc,
+            self.config.pm,
+            self.config.time_matrix,
+            self.config.demands,
+            self.config.sla_limits,
+            self.config.start_time,
+            self.config.max_capacity,
+            self.config.penalty_rate,
+            self.config.service_time,
         )
-        self.timings['offspring'] = time.perf_counter() - t_start
-        
-        # Mutation
-        t_start = time.perf_counter()
-        mutation(offspring, offspring_fitness, self.config)
-        self.timings['mutation'] = time.perf_counter() - t_start
-        
-        # Local search (offspring + population)
-        t_start = time.perf_counter()
-        search(offspring, offspring_fitness, self.config)
-        search(self.population, self.fitness, self.config)
-        self.timings['search'] = time.perf_counter() - t_start
-        
-        # Store offspring for diversity tracking
-        self.latest_offspring = offspring
-        
-        # Elimination
-        t_start = time.perf_counter()
-        self.population, self.fitness, self.age = elimination(
-            self.population, self.fitness, self.age, offspring, offspring_fitness, self.config.window_size
+
+        self.generation_parents = all_parents
+        self.generation_children = all_children
+        self.generation_mutations = all_mutations
+
+        combined_pop = np.vstack((self.population, offspring))
+
+        combined_fit = np.concatenate([
+            self.fitness,
+            offspring_fit
+        ])
+
+        best_indices = np.argsort(combined_fit)[:self.config.population_size]
+
+        self.population = combined_pop[best_indices]
+        self.fitness = combined_fit[best_indices]
+
+        elite_idx = np.argmin(self.fitness)
+
+        elite_pop = self.population[elite_idx:elite_idx+1].copy()
+        elite_fit = self.fitness[elite_idx:elite_idx+1].copy()
+
+        elite_pop, elite_fit = adaptive_local_search_phase(
+            elite_pop,
+            elite_fit,
+            self.als,
+            self.config,
+            self.generation,
+            elite_indices=[elite_idx]
         )
-        self.timings['elimination'] = time.perf_counter() - t_start
-        
-        # Update global best
+
+        self.population[elite_idx] = elite_pop[0]
+        self.fitness[elite_idx] = elite_fit[0]
+
+        self.population, self.fitness, _ = apply_random_immigrant_scheme(
+            self.population,
+            self.fitness,
+            self.num_customers,
+            self.config.time_matrix,
+            self.config.demands,
+            self.config.sla_limits,
+            self.config.start_time,
+            self.config.max_capacity,
+            self.config.penalty_rate,
+            self.config.service_time
+        )
+
         self._update_global_best()
-        
         self.generation += 1
-    
-    def run(self, num_generations: int, reporter: Reporter = None):
-        """Run the EA for a given number of generations.
-        
-        Args:
-            num_generations: Number of generations to run.
-            reporter: Optional Reporter instance for logging. If None, a default
-                      reporter will be created.
-        """
-        if reporter is None:
-            reporter = Reporter()
-        
+
+        return all_parents, all_children, all_mutations
+
+    def run(self, num_generations, max_stagnant_gen=None, max_time_seconds=None, log_filename=None, customer_map=None, init_phase=None, seed=None):
         if self.population is None:
-            self.initialize()
-        
-        reporter.start(self)
-        try:
-            reporter.log(self)
+            # Inisialisasi populasi awal
+            self.initialize(customer_map=customer_map, init_phase=init_phase, seed=seed)
+
+        reporter = None
+        if log_filename:
+            reporter = Reporter(filename=log_filename)
+            reporter.start()
+
+        start_clock = time.time()
+        stagnant_counter = 0
+        previous_best = float("inf")
+
+        # ALS pada populasi awal
+        elite_idx = np.argmin(self.fitness)
+
+        elite_pop = self.population[elite_idx:elite_idx+1].copy()
+        elite_fit = self.fitness[elite_idx:elite_idx+1].copy()
+
+        elite_pop, elite_fit = adaptive_local_search_phase(
+            elite_pop,
+            elite_fit,
+            self.als,
+            self.config,
+            generation=0,
+            elite_indices=[elite_idx]
+        )
+
+        self.population[elite_idx] = elite_pop[0]
+        self.fitness[elite_idx] = elite_fit[0]
+
+        self._update_global_best()
+        previous_best = self.global_best_fitness
+
+        self.generation = 1
+
+        # Evolusi
+        for gen in range(num_generations):
+            all_parents, all_children, all_mutations = self.step()
             
-            for _ in range(num_generations):
-                self.step()
-                reporter.log(self)
-        finally:
+            for pair_idx in range(len(all_parents)):
+                p1, p2 = all_parents[pair_idx]
+                c = all_children[pair_idx]
+                m = all_mutations[pair_idx]
+
+                self.evolution_log.append({
+                    "generation": gen + 1,
+                    "pair_index": pair_idx,
+                    "parent_1": p1.tolist(),
+                    "parent_2": p2.tolist(),
+                    "cut_point": c["cut_point"],
+                    "child_1": c["child1"].tolist(),
+                    "child_2": c["child2"].tolist(),
+                    "mutation_child_1": m["mutation_child1"].tolist(),
+                    "mutation_child_2": m["mutation_child2"].tolist(),
+                    "mutation_cut_1": m["mutation_cut_1"],
+                    "mutation_cut_2": m["mutation_cut_2"],
+                })
+
+            current_best = self.global_best_fitness
+
+            if current_best == previous_best:
+                stagnant_counter += 1
+            else:
+                stagnant_counter = 0
+                previous_best = current_best
+
+            best_route_lokal = self.global_best_tour.tolist()
+
+            waktu_tempuh, pelanggaran_sla, total_penalty, _, arrival_log = hitung_detail_rute(
+                best_route_lokal,
+                self.config.time_matrix,
+                self.config.demands,
+                self.config.sla_limits,
+                self.config.start_time,
+                self.config.max_capacity,
+                self.config.penalty_rate,
+                service_time=self.config.service_time
+            )
+
+            if reporter:
+                reporter.log(
+                    generation=gen + 1,
+                    fitness_array=self.fitness,
+                    rho_SI=self.als.rho_SI, 
+                    rho_MI=self.als.rho_MI,
+                    best_route=best_route_lokal,
+                    waktu_tempuh=waktu_tempuh,
+                    pelanggaran_sla=pelanggaran_sla,
+                    penalty_cost=total_penalty
+                )
+
+            if max_stagnant_gen and stagnant_counter >= max_stagnant_gen:
+                # print(f"[ STOP ] Konvergensi tercapai di Gen-{gen+1}")
+                break
+
+            # if max_time_seconds and (time.time() - start_clock) >= max_time_seconds:
+                # print(f"[ STOP ] Batas waktu habis di Gen-{gen+1}")
+                # break
+
+        if reporter:
             reporter.stop()
-            return self.global_best_tour, self.global_best_fitness
-                
-    @property
-    def best_fitness(self) -> float:
-        """Return the best fitness in the population."""
-        return float(np.min(self.fitness))
 
-    @property
-    def mean_fitness(self) -> float:
-        """Return the mean fitness of the population."""
-        return float(np.mean(self.fitness))
+        return self.global_best_tour, self.global_best_fitness
 
-    @property
-    def best_tour(self) -> np.ndarray:
-        """Return the best tour in the population."""
-        return self.population[np.argmin(self.fitness)]
 
-    @property
-    def mean_age(self) -> float:
-        """Return the mean age of the population."""
-        return float(np.mean(self.age))
+def generate_offspring(population, fitness_array, population_size, pc, pm, 
+                       time_matrix, demands, sla_limits, start_time,
+                       max_capacity, penalty_rate, service_time):
+    
+    N_customers = population.shape[1]
+    
+    offspring = np.empty((population_size, N_customers), dtype=np.int32)
+    offspring_fitness = np.empty(population_size, dtype=np.float64)
 
-    @property
-    def max_age(self) -> int:
-        """Return the maximum age in the population."""
-        return int(np.max(self.age))
+    all_parents = []      
+    all_children = []     
+    all_mutations = [] 
 
-@njit(cache=True, parallel=True)
-def initialization(config):
-    """
-    Initialize a population of tours using the greedy heuristic.
-    """
-    N = config.distance_matrix.shape[0]
-    population = np.empty((config.population_size, 2, N), dtype=np.int_)
+    for i in range(0, population_size, 2):
+        parent1_idx, parent2_idx = select_parents(fitness_array)
 
-    for i in prange(config.population_size):
-        tour = None
-        while tour is None:
-            tour = greedy_cycle(config.distance_matrix, config.init_temp)
-        population[i] = tour
+        parent1 = population[parent1_idx]
+        parent2 = population[parent2_idx]
 
-    return population
+        n = parent1.shape[0]
 
-@njit(cache=True, parallel=True)
-def mutation(population, fitness, config):
-    """
-    Apply double bridge mutation to each tour in the population with given mutation rate.
-    Updates fitness values in-place after mutation.
-    """
-    for i in prange(population.shape[0]):
-        if np.random.rand() < config.mutation_rates[0]:
-            fitness[i] += double_bridge(population[i, ...], config.distance_matrix)
-            # fitness[i] += k_segment_perturbation(population[i, ...], config.distance_matrix, k=5)
-        if np.random.rand() < config.mutation_rates[1]:
-            fitness[i] += reverse(population[i, ...], config.distance_matrix)
-        # fitness[i] = tour_cost(population[i], config.distance_matrix)
-        # assert is_valid_tour(population[i]), "Invalid tour after reverse mutation."
+        # Pilih cut points
+        cut_i = np.random.randint(0, n - 1)
+        cut_j = np.random.randint(cut_i + 1, n)
 
-@njit(cache=True, parallel=True)
-def search(population, fitness, config):
-    """
-    Apply local search to each tour in the population.
-    Updates fitness values in-place after local search.
-    """
-    for i in prange(population.shape[0]):
-        change = 0.0
-        for search_type, iters in zip([0, 1, 2], config.search_iters):
-            change += lso(population[i, ...], config.distance_matrix, config.candidates, search_type, iters)
-
-        fitness[i] += change
-        # fitness[i] = tour_cost(population[i], config.distance_matrix)
-        # assert is_valid_tour(population[i]), "Invalid tour after local search."
-
-@njit(cache=True)
-def generate_offspring(population, pop_fitness, config):
-    """
-    Generate offspring using crossover from the population.
-    Returns both offspring and their fitness values.
-    """
-    N = population.shape[2]
-    offspring = np.empty((config.offspring_size, 2, N), dtype=np.int_)
-    offspring_fitness = np.empty(config.offspring_size, dtype=np.float64)
-
-    # shared_fitness = fitness_sharing(pop_fitness, population, sigma_share=50, alpha=1.0)
-    offspring_generator = tournament_selection(pop_fitness, config.tournament_size)
-    # offspring_generator = rank_selection(pop_fitness, 2)
-
-    for i in range(config.offspring_size):
-        p1 = population[next(offspring_generator)]
-        p2 = population[next(offspring_generator)]
-        if np.random.rand() < 0.8:
-            child, cost = EAX(p1, p2, config.distance_matrix)
+        # Crossover
+        if np.random.rand() < pc:
+            child1 = OX(parent1, parent2, cut_i, cut_j) 
+            child2 = OX(parent2, parent1, cut_i, cut_j)
         else:
-            child, cost, _other, _cost = GAPX(p1, p2, config.distance_matrix)
-        # assert is_valid_tour(child), "Generated invalid tour in crossover."
-        offspring[i] = child
-        offspring_fitness[i] = cost
+            child1 = parent1.copy()
+            child2 = parent2.copy()   
 
-    return offspring, offspring_fitness
+        if np.any(child1 == -1):
+            print("Child1 belum penuh!", child1)
 
+        if np.any(child2 == -1):
+            print("Child2 belum penuh!", child2)         
+        
+        # Mutasi
+        mutation_result_1 = two_opt_mutation(
+            child1, time_matrix, demands, sla_limits, 
+            start_time, max_capacity, penalty_rate, service_time
+        ) if np.random.rand() < pm else (child1.copy(), None, -1, -1)
 
-@njit(cache=True)
-def elimination(population, population_fitness, population_age, offspring, offspring_fitness, window_size):
-    """
-    Eliminate individuals to maintain population size, using Restricted Tournament Replacement (RTR).
-    Returns the new population, updated fitness values, and updated ages.
-    """
+        mutation_child1 = mutation_result_1[0]
+        mutation_cut_1 = (mutation_result_1[2], mutation_result_1[3]) # (i, j)
+
+        mutation_result_2 = two_opt_mutation(
+            child2, time_matrix, demands, sla_limits, 
+            start_time, max_capacity, penalty_rate, service_time
+        ) if np.random.rand() < pm else (child2.copy(), None,  -1, -1)
+
+        mutation_child2 = mutation_result_2[0]
+        mutation_cut_2 = (mutation_result_2[2], mutation_result_2[3])
+    
+        # Hitung fitness dari anak yang sudah melewati tahap mutasi
+        mutation_child1_fit = fitness(mutation_child1, time_matrix, demands, sla_limits, start_time, max_capacity, penalty_rate, service_time)
+        offspring[i] = mutation_child1
+        offspring_fitness[i] = mutation_child1_fit
+
+        # Lakukan hal yang sama untuk anak kedua (jika belum melebihi batas populasi)
+        if i + 1 < population_size:
+            mutation_child2_fit = fitness(mutation_child2, time_matrix, demands, sla_limits, start_time, max_capacity, penalty_rate, service_time)
+            offspring[i+1] = mutation_child2
+            offspring_fitness[i+1] = mutation_child2_fit
+
+        all_parents.append((parent1.copy(), parent2.copy()))
+        all_children.append({
+            "child1": child1.copy(),
+            "child2": child2.copy(),
+            "cut_point": (cut_i, cut_j)
+        })
+        all_mutations.append({
+            "mutation_child1": mutation_child1.copy(),
+            "mutation_child2": mutation_child2.copy(),
+            "mutation_cut_1": mutation_cut_1,
+            "mutation_cut_2": mutation_cut_2,
+        })
+            
+    return offspring, offspring_fitness, all_parents, all_children, all_mutations
+
+def adaptive_local_search_phase(population, fitness_array, als, config, generation, elite_indices=None):
     pop_size = population.shape[0]
 
-    new_population = population.copy()
-    new_fitness = population_fitness.copy()
-    new_age = population_age + 1  # Increment age for all individuals
+    for i in prange(pop_size):
+        original_idx = elite_indices[i]
+        s = population[i].copy()
+        f_s = fitness_array[i]
 
-    for i in range(offspring.shape[0]):
-        offspring_tour = offspring[i]
-        offspring_fit = offspring_fitness[i]
+        for siklus in range(config.ls_size):
 
-        # Select random window
-        start_idx = np.random.randint(0, pop_size)
-        indices = [(start_idx + j) % pop_size for j in range(window_size)]
+            # ===============================
+            # simpan kondisi awal cycle
+            # ===============================
+            s_before = s.copy()
 
-        # Find the most similar individual in the window
-        best_idx = -1
-        best_distance = np.inf
+            f_before = f_s
 
-        for idx in indices:
-            dist = hamming_distance(offspring_tour, new_population[idx])
-            if dist < best_distance:
-                best_distance = dist
-                best_idx = idx
+            rho_si_old = als.rho_SI
+            rho_mi_old = als.rho_MI
 
-        # Replace if offspring is better
-        if offspring_fit < new_fitness[best_idx]:
-            new_population[best_idx] = offspring_tour
-            new_fitness[best_idx] = offspring_fit
-            new_age[best_idx] = 0  # Reset age for new offspring
+            S_tour = []
+            S_delta = []
+            S_operator = []
+            S_rand = []
+            S_edge = []
 
-    return new_population, new_fitness, new_age
+            # ===============================
+            # generate neighborhood
+            # ===============================
+            ns = 0
+            while ns < config.ns_max:
+                new_tour = s.copy()
+
+                # pilih operator berdasarkan probabilitas adaptif
+                operator_type, rand = als.select_operator()
+
+                if operator_type == "SI":
+                    new_tour, delta, edge_info = als.single_inversion(new_tour)
+                else:
+                    new_tour, delta, edge_info = als.multiple_inversion(new_tour)
+
+                # simpan candidate
+                S_tour.append(new_tour)
+                S_delta.append(delta)
+                S_operator.append(operator_type)
+                S_rand.append(rand)
+                S_edge.append(edge_info)
+
+                # log neighbor
+                als.neighbor_history.append({
+                    "generation": generation,
+                    "individual": original_idx,
+                    "cycle": siklus,
+                    "neighbor": ns,
+
+                    "operator": operator_type,
+                    "random": rand,
+
+                    "tour_before": edge_info["tour_before"],
+                    "tour_after": edge_info["tour_after"],
+
+                    "i_move": edge_info["move_i"],
+                    "j_move": edge_info["move_j"],
+
+                    "delta": delta,
+
+                    "a": edge_info["a"],
+                    "b": edge_info["b"],
+                    "c": edge_info["c"],
+                    "d": edge_info["d"],
+
+                    "ab": edge_info["ab"],
+                    "ac": edge_info["ac"],
+                    "bd": edge_info["bd"],
+                    "cd": edge_info["cd"],
+                    
+                    "selected": False      # sementara
+                })
+
+                ns += 1
+
+            # ===============================
+            # pilih best neighbor (min delta)
+            # ===============================
+            best_idx = np.argmin(S_delta)
+            s_star = S_tour[best_idx]
+            best_delta = S_delta[best_idx]
+            best_operator = S_operator[best_idx] 
+            best_rand = S_rand[best_idx]
+            als.neighbor_history[-config.ns_max + best_idx]["selected"] = True
+
+            # ===============================
+            # full fitness evaluation
+            # ===============================
+            f_star = fitness(
+                s_star,
+                config.time_matrix,
+                config.demands,
+                config.sla_limits,
+                config.start_time,
+                config.max_capacity,
+                config.penalty_rate,
+                config.service_time
+            )
+
+            eta = 0.0
+            improved = False
+
+            # ===============================
+            # accept if improved
+            # ===============================
+            if f_star < f_s:
+                eta = als.compute_eta(f_s, f_star)
+
+                # reward operator
+                als.record_eta(best_operator, eta)
+
+                # update current solution
+                s = s_star.copy()
+                f_s = f_star
+                improved = True
+
+            # ===============================
+            # log cycle history
+            # ===============================
+            als.history.append({
+                "generation": generation,
+                "individual": original_idx,
+                "cycle": siklus,
+
+                "s_before": s_before,
+                "f_ini": f_before,
+
+                "rho_SI_before": rho_si_old,
+                "rho_MI_before": rho_mi_old,
+
+                "random": best_rand,
+                "operator": best_operator,
+
+                "best_neighbor": s_star.copy(),
+                "best_delta": best_delta,
+                "num_neighbors": len(S_tour),
+
+                "f_imp": f_star,
+                "eta": eta,
+                "improved": improved,
+            })
+
+        # simpan hasil individu setelah semua local search cycle selesai
+        population[i] = s
+        fitness_array[i] = f_s
+
+    # ==========================================
+    # update operator probability per generation
+    # ==========================================
+    als.update_probabilities_per_generation(generation)
+    
+    return population, fitness_array

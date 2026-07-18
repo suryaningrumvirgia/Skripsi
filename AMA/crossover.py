@@ -1,43 +1,41 @@
 import numpy as np
 from numba import njit
-from numba.typed import List
-from tsp.representation import is_valid_tour, tour_cost, invert_permutation
-from tsp.subtours import make_subtour, initialize_subtours, repair_tour
 
-"""
-CROSSOVER OPERATORS:
-
-This module implements OX (Order Crossover) operators for ATSP tours
-"""
+# OX (Order Crossover)
 
 @njit(cache=True)
-def OX(parent1, parent2, distance_matrix):
+def OX(parent1, parent2, cut_i, cut_j):
     n = parent1.shape[0]
-    child = np.full(n, -1)
+    if n <= 1:
+        return parent1.copy()  # Jika hanya ada satu node, kembalikan salinan parent1
+    else:
+        child = np.full(n, -1, dtype=np.int32)
+        
+        # Tambahkan + 1 agar indeks ID pelanggan (1 sampai n) tidak Out of Bounds
+        in_child = np.zeros(n + 1, dtype=np.bool_)
 
-    # 1. pilih cut points
-    i = np.random.randint(0, n - 1)
-    j = np.random.randint(i + 1, n)
+        # Copy slice dari parent1
+        for k in range(cut_i, cut_j + 1):
+            child[k] = parent1[k]
+            in_child[parent1[k]] = True
 
-    # 2. copy slice dari parent1
-    for k in range(i, j):
-        child[k] = parent1[k]
+        # Isi sisanya dari parent2 dari kiri ke kanan
+        parent2_idx = 0
 
-    # 3. isi sisanya dari parent2 (preserve order)
-    pos = j % n
-    for k in range(n):
-        city = parent2[(j + k) % n]
-        if not contains(child, city):
-            child[pos] = city
-            pos = (pos + 1) % n
+        for pos in range(n):
 
-    cost = tour_cost(child, distance_matrix)
-    return child, cost
+            # kalau posisi sudah terisi hasil copy, lewati
+            if child[pos] != -1:
+                continue
 
-@njit
-def contains(arr, val):
-    for x in arr:
-        if x == val:
-            return True
-    return False
+            # cari gen parent2 berikutnya yang belum ada di child
+            while parent2_idx < n and in_child[parent2[parent2_idx]]:
+                parent2_idx += 1
+
+            if parent2_idx < n:
+                child[pos] = parent2[parent2_idx]
+                in_child[parent2[parent2_idx]] = True
+                parent2_idx += 1
+
+        return child
 

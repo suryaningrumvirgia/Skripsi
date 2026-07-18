@@ -1,113 +1,36 @@
+import pandas as pd
 import numpy as np
-from numba import njit, types
-from numba.experimental import jitclass
-from numba.typed import List
-from collections import namedtuple
+from numba import njit
 
-
-"""
-REPRESENTATION:
-
-Tours of length N are represented as numpy arrays of shape (2, N)
-where the first row represents the right edge adjacencies
-and the second row represents the down edge adjacencies.
-"""
-
+def siapkan_data_vrp(file_pelanggan, waktu_batas_statis=0):
+    # Membaca dan memisahkan pelanggan statis & dinamis
+    df = pd.read_excel(file_pelanggan, sheet_name='Sheet2', index_col=0)
+    df = df.sort_values(by='Arrival Time').reset_index(drop=True)
+    
+    statis_mask = df['Arrival Time'] <= waktu_batas_statis
+    num_static_customers = int(statis_mask.sum())
+    
+    df['numba_id'] = np.arange(1, len(df) + 1)
+    
+    df_statis = df[statis_mask]
+    df_dinamis = df[~statis_mask]
+    
+    return df, df_statis, df_dinamis, num_static_customers
 
 @njit(cache=True)
-def is_valid_tour(tour):
-    """
-    Check if a tour is valid by verifying:
-    1. Starting from city 0, we return to city 0 after exactly N steps (not before)
-    2. The inverse (down) adjacencies are consistent with the forward (right) adjacencies
-    
-    Returns True if the tour is valid, False otherwise.
-    """
-    N = tour.shape[1]
-    
-    # Check forward traversal: start at city 0, should return after exactly N steps
-    current = 0
-    for i in range(N):
-        next_city = tour[0, current]
-        
-        # Check bounds
-        if next_city < 0 or next_city >= N:
-            return False
-        
-        # Check inverse consistency: if current -> next_city, then next_city's down should be current
-        if tour[1, next_city] != current:
-            return False
-        
-        # If we return to city 0 before N steps, invalid
-        if next_city == 0 and i < N - 1:
-            return False
-        
-        current = next_city
-    
-    # After N steps, we should be back at city 0
-    if current != 0:
+def is_valid_static_tour(tour, num_static_customers):
+    # Mengecek validitas rute statis awal
+    if tour.shape[0] != num_static_customers:
         return False
+        
+    visited = np.zeros(num_static_customers + 1, dtype=np.int_)
     
+    for i in range(tour.shape[0]):
+        node = tour[i]
+        if node <= 0 or node > num_static_customers:
+            return False
+        visited[node] += 1
+        if visited[node] > 1:
+            return False
+            
     return True
-
-
-@njit(cache=True)
-def tour_cost(tour, distance_matrix):
-    """
-    Calculate the total cost of a tour using the distance matrix.
-    """
-    s = 0.0
-    for i, j in enumerate(tour[0]):
-        s += distance_matrix[i, j]
-    return s
-
-
-@njit(cache=True)
-def to_city_order(tour):
-    """
-    Convert the adjacency representation to a city order.
-    
-    Returns a 1D array of city indices in the order they are visited,
-    starting from city 0.
-    """
-    N = tour.shape[1]
-    order = np.empty(N, dtype=np.int_)
-    
-    current = 0
-    for i in range(N):
-        order[i] = current
-        current = tour[0, current]
-    
-    return order
-
-
-@njit(cache=True)
-def hamming_distance(tour1, tour2):
-    """
-    Compute the Hamming distance between two tours in adjacency representation.
-    
-    Returns the number of differing edges.
-    """
-    diff = 0
-    N = tour1.shape[1]
-    for i in range(N):
-        if tour1[0, i] != tour2[0, i]:
-            diff += 1
-    return diff
-
-
-@njit(cache=True)
-def invert_permutation(p):
-    """
-    Invert a permutation represented as a 1D array.
-    
-    Args:
-        p: 1D array of length N representing a permutation of {0, 1, ..., N-1}
-    Returns:
-        inv_p: 1D array of length N where inv_p[p[i]] = i
-    """
-    N = p.shape[0]
-    inv_p = np.empty(N, dtype=np.int_)
-    for i in range(N):
-        inv_p[p[i]] = i
-    return inv_p

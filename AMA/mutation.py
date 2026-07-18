@@ -1,74 +1,36 @@
 import numpy as np
 from numba import njit
-
-"""
-MUTATION OPERATORS:
-
-This module implements mutation operators for TSP tours.
-2-opt mutation
-"""
-
+from fitness import fitness
 
 @njit(cache=True)
-def two_opt_mutation(tour, D):
-    """
-    Perform a random 2-opt mutation on a tour in (2, N) edge-map representation.
-    Randomly selects two non-adjacent edges and reverses the segment between them.
+def two_opt_mutation(tour, time_matrix, demands, sla_limits, start_time, max_capacity, penalty_rate, service_time):
+    N = tour.shape[0]
+    if N <= 1:
+        return tour.copy(), fitness(tour, time_matrix, demands, sla_limits, start_time, max_capacity, penalty_rate, service_time), 0, 0  # Jika hanya ada satu node, kembalikan salinan tour dan biayanya
     
-    Returns the cost delta (negative means improvement).
-    """
-    N = tour.shape[1]
-    if N < 4:
-        return 0.0
+    # Duplikasi rute asli
+    new_tour = tour.copy()
 
-    # Pick two non-adjacent edges (a->b) and (c->d)
-    a = np.random.randint(N)
-    c = np.random.randint(N)
+    # Pilih dua titik potong secara acak
+    i = np.random.randint(0, N - 1)
+    j = np.random.randint(i + 1, N)
 
-    while (
-        c == a or
-        c == tour[0, a] or
-        a == tour[0, c]
-    ):
-        c = np.random.randint(N)
+    # BALIKKAN SUB-ARRAY SECARA AMAN (Two-Pointer Swap)
+    # Menghilangkan bug angka kembar akibat overlap memori slicing Numba
+    left = i
+    right = j
+    while left < right:
+        # Tukar posisi elemen
+        tmp = new_tour[left]
+        new_tour[left] = new_tour[right]
+        new_tour[right] = tmp
+        
+        # Gerakkan penunjuk ke dalam
+        left += 1
+        right -= 1
 
-    b = tour[0, a]
-    d = tour[0, c]
+    # HITUNG BIAYA DENGAN PARAMETER LENGKAP
+    old_cost = fitness(tour, time_matrix, demands, sla_limits, start_time, max_capacity, penalty_rate, service_time)
+    new_cost = fitness(new_tour, time_matrix, demands, sla_limits, start_time, max_capacity, penalty_rate, service_time)
 
-    # ---- cost delta ----
-    # Removed edges: a->b, c->d
-    # Added edges:   a->c, b->d
-    # Internal edges reversed (important for ATSP)
-    old_cost = D[a, b] + D[c, d]
-    new_cost = D[a, c] + D[b, d]
-
-    # Traverse segment b -> ... -> c
-    curr = b
-    prev = a
-    while curr != c:
-        nxt = tour[0, curr]
-        old_cost += D[curr, nxt]
-        new_cost += D[nxt, curr]
-        curr = nxt
-
-    delta = new_cost - old_cost
-
-    # ---- apply 2-opt reversal ----
-    # Reverse edges from b to c
-    curr = b
-    prev = a
-    while curr != c:
-        nxt = tour[0, curr]
-        tour[0, curr] = prev
-        tour[1, prev] = curr
-        prev = curr
-        curr = nxt
-
-    # reconnect endpoints
-    tour[0, a] = c
-    tour[1, c] = a
-    tour[0, b] = d
-    tour[1, d] = b
-
-    return delta
-
+    return new_tour, new_cost, i, j

@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)file:///C:/Users/Lenovo/OneDrive/Documents/Semester%208/TA/Coding/Skripsey/AMA/best_seed_route.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <script src="./best_seed_route 2_files/leaflet.js.download"></script>
+    <script src="./best_seed_route 2_files/jquery-3.7.1.min.js.download"></script>
+    <script src="./best_seed_route 2_files/bootstrap.bundle.min.js.download"></script>
+    <script src="./best_seed_route 2_files/leaflet.awesome-markers.js.download"></script>
+    <link rel="stylesheet" href="./best_seed_route 2_files/leaflet.css">
+    <link rel="stylesheet" href="./best_seed_route 2_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./best_seed_route 2_files/bootstrap-glyphicons.css">
+    <link rel="stylesheet" href="./best_seed_route 2_files/all.min.css">
+    <link rel="stylesheet" href="./best_seed_route 2_files/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="./best_seed_route 2_files/leaflet.awesome.rotate.min.css">
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <style>
+                #map_186220b3d0e41c864325daeba445ccc3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body class="">
+    
+    
+            <div class="folium-map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map_186220b3d0e41c864325daeba445ccc3" tabindex="0" style="outline: none;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(345px, 44px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(-1754px, -268px, 0px) scale(2);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(-866px, 36px, 0px) scale(1);"><img alt="" src="./best_seed_route 2_files/136129.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1028px, -44px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136129(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1284px, -44px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136130.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1028px, 212px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136130(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1284px, 212px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136128.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1028px, -300px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136128(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1284px, -300px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136129(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(772px, -44px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136129(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1540px, -44px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136130(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(772px, 212px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136130(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1540px, 212px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136131.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1028px, 468px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136131(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1284px, 468px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136128(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(772px, -300px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136128(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1540px, -300px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136131(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(772px, 468px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136131(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1540px, 468px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136129(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(516px, -44px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136129(5).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1796px, -44px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136130(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(516px, 212px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136130(5).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1796px, 212px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136128(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(516px, -300px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136128(5).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1796px, -300px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136131(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(516px, 468px, 0px); opacity: 1;"><img alt="" src="./best_seed_route 2_files/136131(5).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1796px, 468px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="1630" height="763" viewBox="-481 -108 1630 763" style="transform: translate3d(-481px, -108px, 0px);"><g><path class="leaflet-interactive" stroke="black" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M622 655L666 637L688 626L725 600L742 567L748 542L752 499L749 454L758 383L773 338L820 280L846 245L875 200L858 180L849 166L833 135L829 110L835 74L839 37L838 -6L834 -34L826 -56L808 -92L797 -108M797 -108L808 -92L826 -56L834 -34L838 -6L839 37L835 74L829 110L833 135L849 166L858 180L875 200L846 245L820 280L773 338L758 383L749 454L752 499L748 542L742 567L725 600L688 626L666 637L622 655"></path><path class="leaflet-interactive" stroke="grey" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M0 0"></path><path class="leaflet-interactive" stroke="pink" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-55 655L-50 637L-52 635L-54 621L-58 580L-81 406L-83 395L-95 389L-102 379L-104 371L-104 363L-102 356L-97 349L-91 344L-116 202L-120 196L-119 188L-116 182L-103 178L-96 181L-71 117L-66 93L-66 86L-70 70L-93 15L-70 70L-66 86L-66 93L-71 117L-96 181L-92 187L-91 193L-93 199L-73 340L-64 343L-56 349L-51 358L-49 366L-53 382L-58 389L-65 393L-64 408L-28 634L-32 636L-50 637L-55 655M523 655L510 628L500 597L486 601L477 539L470 519L471 515L466 504L469 501L511 487L518 483L542 455L547 445L566 338L559 164L546 164L542 161L522 123L513 114L499 110L488 104L485 131L483 236L485 131L488 104L499 110L513 114L522 123L542 161L546 164L559 164L566 338L547 445L542 455L518 483L511 487L469 501L466 504L471 515L470 519L477 539L486 601L500 597L510 628L523 655"></path><path class="leaflet-interactive" stroke="yellow" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M0 0"></path><path class="leaflet-interactive" stroke="blue" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M622 655L666 637L688 626L725 600L742 567L748 542L752 499L749 454L758 383L773 338L820 280L846 245L886 183L904 162L922 147L948 135L994 123L1017 119L1069 117L1043 152L1003 196L1043 152L1069 117L1017 119L994 123L948 135L922 147L904 162L886 183L846 245L820 280L773 338L758 383L749 454L752 499L748 542L742 567L725 600L688 626L666 637L622 655"></path><path class="leaflet-interactive" stroke="green" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M0 0"></path><path class="leaflet-interactive" stroke="red" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M276 655L281 651L276 655"></path><path class="leaflet-interactive" stroke="purple" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M281 651L276 655"></path><path class="leaflet-interactive" stroke="orange" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M622 655L666 637L688 626L725 600L742 567L748 542L752 499L749 454L758 383L773 338L820 280L846 245L875 200L858 180L849 166L833 135L829 110L835 74L839 37L838 -6L834 -34L826 -56L808 -92L797 -108M797 -108L808 -92L826 -56L834 -34L838 -6L839 37L835 74L829 110L833 135L849 166L858 180L875 200L846 245L820 280L773 338L758 383L749 454L752 499L748 542L742 567L725 600L688 626L666 637L622 655"></path><path class="leaflet-interactive" stroke="brown" stroke-opacity="0.8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M622 655L666 637L688 626L725 600L742 567L748 542L752 499L749 454L750 447L749 454L752 499L748 542L742 567L725 600L688 626L666 637L622 655"></path></g></svg></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-126px, 1051px, 0px); z-index: 1051;">
+            <div style="
+                background: red;
+                color: white;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                border: 2px solid white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            ">
+                <i class="fa fa-home" style="font-size: 12px;"></i> 
+            </div>
+        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-445px, 2104px, 0px); z-index: 2104;">
+                        <div style="
+                            background:black;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(756px, -613px, 0px); z-index: -613;">
+                        <div style="
+                            background:black;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-1942px, 2007px, 0px); z-index: 2007;">
+                        <div style="
+                            background:grey;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(454px, 1283px, 0px); z-index: 1283;">
+                        <div style="
+                            background:grey;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(220px, 1451px, 0px); z-index: 1451;">
+                        <div style="
+                            background:grey;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        3
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" aria-describedby="leaflet-tooltip-1521" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-153px, 40px, 0px); z-index: 40;">
+                        <div style="
+                            background:pink;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(477px, 235px, 0px); z-index: 235;" aria-describedby="leaflet-tooltip-1761">
+                        <div style="
+                            background:pink;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" aria-describedby="leaflet-tooltip-725" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(454px, 1283px, 0px); z-index: 1283;">
+                        <div style="
+                            background:yellow;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-168px, 1205px, 0px); z-index: 1205;">
+                        <div style="
+                            background:blue;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(1012px, 203px, 0px); z-index: 203;">
+                        <div style="
+                            background:blue;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(222px, 781px, 0px); z-index: 781;" aria-describedby="leaflet-tooltip-584">
+                        <div style="
+                            background:blue;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        3
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" aria-describedby="leaflet-tooltip-1325" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-192px, 923px, 0px); z-index: 923;">
+                        <div style="
+                            background:green;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-559px, 2608px, 0px); z-index: 2608;">
+                        <div style="
+                            background:green;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-210px, 1502px, 0px); z-index: 1502;">
+                        <div style="
+                            background:red;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-2054px, 1471px, 0px); z-index: 1471;">
+                        <div style="
+                            background:red;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-2461px, 1855px, 0px); z-index: 1855;">
+                        <div style="
+                            background:red;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        3
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-1886px, 2486px, 0px); z-index: 2486;">
+                        <div style="
+                            background:red;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        4
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(296px, 668px, 0px); z-index: 668;">
+                        <div style="
+                            background:red;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        5
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(296px, 668px, 0px); z-index: 668;">
+                        <div style="
+                            background:purple;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        0
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" aria-describedby="leaflet-tooltip-587" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(0px, 863px, 0px); z-index: 863;">
+                        <div style="
+                            background:purple;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(138px, 1038px, 0px); z-index: 1038;">
+                        <div style="
+                            background:purple;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        3
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-327px, 1344px, 0px); z-index: 1344;">
+                        <div style="
+                            background:purple;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        4
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-581px, 1587px, 0px); z-index: 1587;">
+                        <div style="
+                            background:purple;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        5
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-559px, 2608px, 0px); z-index: 2608;">
+                        <div style="
+                            background:purple;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        6
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-1046px, 1495px, 0px); z-index: 1495;">
+                        <div style="
+                            background:orange;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        1
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-2054px, 1471px, 0px); z-index: 1471;">
+                        <div style="
+                            background:orange;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-2388px, 1653px, 0px); z-index: 1653;">
+                        <div style="
+                            background:orange;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        3
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(514px, -700px, 0px); z-index: -700;">
+                        <div style="
+                            background:orange;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        4
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(87px, 1270px, 0px); z-index: 1270;">
+                        <div style="
+                            background:orange;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        5
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(87px, 1270px, 0px); z-index: 1270;">
+                        <div style="
+                            background:brown;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        0
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-447px, 1281px, 0px); z-index: 1281;">
+                        <div style="
+                            background:brown;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        2
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-449px, 2005px, 0px); z-index: 2005;">
+                        <div style="
+                            background:brown;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        3
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(-257px, 1569px, 0px); z-index: 1569;">
+                        <div style="
+                            background:brown;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        4
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" aria-describedby="leaflet-tooltip-639" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(339px, 921px, 0px); z-index: 921;">
+                        <div style="
+                            background:brown;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        5
+                        </div>
+                        </div><div class="leaflet-marker-icon empty leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -6px; margin-top: -6px; width: 12px; height: 12px; transform: translate3d(747px, 447px, 0px); z-index: 447;">
+                        <div style="
+                            background:brown;
+                            color:white;
+                            border-radius:50%;
+                            width:26px;
+                            height:26px;
+                            text-align:center;
+                            line-height:26px;
+                            font-size:12px;
+                            font-weight:bold;
+                            border:2px solid white;
+                        ">
+                        6
+                        </div>
+                        </div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(5.36457e+07px, 3.48493e+07px, 0px) scale(131072);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="file:///C:/Users/Lenovo/OneDrive/Documents/Semester%208/TA/Coding/Skripsey/AMA/best_seed_route.html#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="file:///C:/Users/Lenovo/OneDrive/Documents/Semester%208/TA/Coding/Skripsey/AMA/best_seed_route.html#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-layers leaflet-control-layers-expanded leaflet-control" aria-haspopup="true"><a class="leaflet-control-layers-toggle" href="file:///C:/Users/Lenovo/OneDrive/Documents/Semester%208/TA/Coding/Skripsey/AMA/best_seed_route.html#" title="Layers" role="button"></a><section class="leaflet-control-layers-list"><div class="leaflet-control-layers-base"><label><span><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_235" checked="checked"><span> openstreetmap</span></span></label></div><div class="leaflet-control-layers-separator"></div><div class="leaflet-control-layers-overlays"><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 1</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 2</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 3</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 4</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 5</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 6</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 7</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 8</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 9</span></span></label><label><span><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Partisi 10</span></span></label></div></section></div></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</div></div></div></div>
+        
+
+<script>
+    
+    
+            var map_186220b3d0e41c864325daeba445ccc3 = L.map(
+                "map_186220b3d0e41c864325daeba445ccc3",
+                {
+                    center: [-6.933427581121922, 107.77570919636636],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0c6b80470d849d77f218c6884f2aa0ca = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0c6b80470d849d77f218c6884f2aa0ca.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var marker_0e6d8a4b7488dfb0a87bbe71a71c7610 = L.marker(
+                [-6.933427581121922, 107.77570919636636],
+                {
+}
+            ).addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var div_icon_e40deca100d42b1355e83cbd0577d48f = L.divIcon({
+  "html": "\n            \u003cdiv style=\"\n                background: red;\n                color: white;\n                border-radius: 50%;\n                width: 20px;\n                height: 20px;\n                text-align: center;\n                border: 2px solid white;\n                display: flex;\n                align-items: center;\n                justify-content: center;\n                box-shadow: 0 1px 2px rgba(0,0,0,0.4);\n            \"\u003e\n                \u003ci class=\"fa fa-home\" style=\"font-size: 12px;\"\u003e\u003c/i\u003e \n            \u003c/div\u003e\n        ",
+  "className": "empty",
+});
+        
+    
+            marker_0e6d8a4b7488dfb0a87bbe71a71c7610.bindTooltip(
+                `<div>
+                     DEPO UTAMA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e6d8a4b7488dfb0a87bbe71a71c7610.setIcon(div_icon_e40deca100d42b1355e83cbd0577d48f);
+            
+    
+            var feature_group_736483f4de301e7ee8986b057ff0a0ef = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_6cfff9dd978a4d42168131c7f2990d52 = L.marker(
+                [-6.934250632768988, 107.77548122335428],
+                {
+}
+            ).addTo(feature_group_736483f4de301e7ee8986b057ff0a0ef);
+        
+    
+            var div_icon_1ae2ac5ed35f46fd0c8aace8e21fb506 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:blue;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_6cfff9dd978a4d42168131c7f2990d52.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 1</b><br>Stop ke-1<br>Pelanggan 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6cfff9dd978a4d42168131c7f2990d52.setIcon(div_icon_1ae2ac5ed35f46fd0c8aace8e21fb506);
+            
+    
+            var marker_ddd9530c8b6ca937a6f4285e56a87c77 = L.marker(
+                [-6.928915631166763, 107.7818123098603],
+                {
+}
+            ).addTo(feature_group_736483f4de301e7ee8986b057ff0a0ef);
+        
+    
+            var div_icon_d2af04f0c23652208a62739c7af5c2c0 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:blue;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_ddd9530c8b6ca937a6f4285e56a87c77.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 1</b><br>Stop ke-2<br>Pelanggan 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ddd9530c8b6ca937a6f4285e56a87c77.setIcon(div_icon_d2af04f0c23652208a62739c7af5c2c0);
+            
+    
+            var marker_db6138a0f4e8fad734bc2a5621b122f0 = L.marker(
+                [-6.9319911779322245, 107.77757584243736],
+                {
+}
+            ).addTo(feature_group_736483f4de301e7ee8986b057ff0a0ef);
+        
+    
+            var div_icon_a5eff5a5d8b74b7e64aa7676cbcaece9 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:blue;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        3\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_db6138a0f4e8fad734bc2a5621b122f0.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 1</b><br>Stop ke-3<br>Pelanggan 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_db6138a0f4e8fad734bc2a5621b122f0.setIcon(div_icon_a5eff5a5d8b74b7e64aa7676cbcaece9);
+            
+    
+        function geo_json_aa86ee967b31ee98dab9251fb3809434_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "blue", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_aa86ee967b31ee98dab9251fb3809434_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_aa86ee967b31ee98dab9251fb3809434 = L.geoJson(null, {
+                onEachFeature: geo_json_aa86ee967b31ee98dab9251fb3809434_onEachFeature,
+            
+                style: geo_json_aa86ee967b31ee98dab9251fb3809434_styler,
+            ...{
+}
+        });
+
+        function geo_json_aa86ee967b31ee98dab9251fb3809434_add (data) {
+            geo_json_aa86ee967b31ee98dab9251fb3809434
+                .addData(data);
+        }
+            geo_json_aa86ee967b31ee98dab9251fb3809434_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.7755, -6.933633], [107.775579, -6.933728], [107.775626, -6.93385], [107.775648, -6.933969], [107.77564, -6.934063], [107.775663, -6.934152], [107.775691, -6.934223], [107.775695, -6.934287], [107.775676, -6.934344], [107.775622, -6.934367], [107.775579, -6.934375], [107.775507, -6.934388], [107.775579, -6.934375], [107.775622, -6.934367], [107.775676, -6.934344], [107.775695, -6.934287], [107.775691, -6.934223], [107.775847, -6.93423], [107.775951, -6.934214], [107.776109, -6.934195], [107.776292, -6.934182], [107.776434, -6.934201], [107.776545, -6.934252], [107.77666, -6.934285], [107.776706, -6.93431], [107.77684, -6.934383], [107.776987, -6.934476], [107.777084, -6.934589], [107.777196, -6.934728], [107.777307, -6.934875], [107.777355, -6.934941], [107.777358, -6.935079], [107.777364, -6.935156], [107.777857, -6.935227], [107.778088, -6.935275], [107.778096, -6.935326], [107.778107, -6.935373], [107.778138, -6.935392], [107.778223, -6.9354], [107.778293, -6.935393], [107.778343, -6.935384], [107.778762, -6.935341], [107.778728, -6.935262], [107.778689, -6.935196], [107.778655, -6.935105], [107.778585, -6.935006], [107.77855, -6.93491], [107.77851, -6.934835], [107.778505, -6.934708], [107.778508, -6.93463], [107.778523, -6.93458], [107.778526, -6.934516], [107.778532, -6.934423], [107.77851, -6.93433], [107.778467, -6.934239], [107.778411, -6.934135], [107.77833, -6.933986], [107.778293, -6.933832], [107.778261, -6.933664], [107.778239, -6.933557], [107.778218, -6.933446], [107.778151, -6.933146], [107.778131, -6.933081], [107.778079, -6.932762], [107.77806, -6.93264], [107.778026, -6.932486], [107.777993, -6.93231], [107.777958, -6.932166], [107.777948, -6.932117], [107.777928, -6.932061], [107.778101, -6.931994], [107.778259, -6.931932], [107.778314, -6.931909], [107.778465, -6.931852], [107.778487, -6.931843], [107.77854, -6.931822], [107.778568, -6.931812], [107.778701, -6.931754], [107.778956, -6.931654], [107.779034, -6.93162], [107.779138, -6.931572], [107.77927, -6.931502], [107.779276, -6.931499], [107.779614, -6.93137], [107.779796, -6.93129], [107.779956, -6.931226], [107.780075, -6.931165], [107.780219, -6.931067], [107.78027, -6.931026], [107.780362, -6.930851], [107.780395, -6.930718], [107.780399, -6.930642], [107.780417, -6.930489], [107.780401, -6.930249], [107.780432, -6.930023], [107.780449, -6.929871], [107.780507, -6.929695], [107.780531, -6.929635], [107.780578, -6.929569], [107.780679, -6.929445], [107.780781, -6.929326], [107.78092, -6.92914], [107.780977, -6.929049], [107.781076, -6.928896], [107.781135, -6.928806], [107.781233, -6.928693], [107.781331, -6.928613], [107.781468, -6.928553], [107.781718, -6.928488], [107.78184, -6.928468], [107.781973, -6.92846], [107.782093, -6.928457], [107.78212, -6.928456], [107.782035, -6.928569], [107.781977, -6.928641], [107.781765, -6.928874], [107.781977, -6.928641], [107.782035, -6.928569], [107.78212, -6.928456], [107.782093, -6.928457], [107.781973, -6.92846], [107.78184, -6.928468], [107.781718, -6.928488], [107.781468, -6.928553], [107.781331, -6.928613], [107.781233, -6.928693], [107.781135, -6.928806], [107.781076, -6.928896], [107.780977, -6.929049], [107.78092, -6.92914], [107.780781, -6.929326], [107.780679, -6.929445], [107.780578, -6.929569], [107.780531, -6.929635], [107.780507, -6.929695], [107.780449, -6.929871], [107.780432, -6.930023], [107.780401, -6.930249], [107.780417, -6.930489], [107.780399, -6.930642], [107.780395, -6.930718], [107.780362, -6.930851], [107.78027, -6.931026], [107.780219, -6.931067], [107.780075, -6.931165], [107.779956, -6.931226], [107.779796, -6.93129], [107.779614, -6.93137], [107.779276, -6.931499], [107.77927, -6.931502], [107.779138, -6.931572], [107.779034, -6.93162], [107.778956, -6.931654], [107.778701, -6.931754], [107.778568, -6.931812], [107.77854, -6.931822], [107.778487, -6.931843], [107.778465, -6.931852], [107.778314, -6.931909], [107.778259, -6.931932], [107.778101, -6.931994], [107.777928, -6.932061], [107.777444, -6.932234], [107.777419, -6.932244], [107.777405, -6.932195], [107.777405, -6.931991], [107.777405, -6.932195], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_aa86ee967b31ee98dab9251fb3809434.addTo(feature_group_736483f4de301e7ee8986b057ff0a0ef);
+        
+    
+            feature_group_736483f4de301e7ee8986b057ff0a0ef.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_0ea4af097c67a21a293fde1d34e44187 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_76f56aefe9ed434b5e9e71c668fbe05c = L.marker(
+                [-6.932748434100871, 107.77535432150675],
+                {
+}
+            ).addTo(feature_group_0ea4af097c67a21a293fde1d34e44187);
+        
+    
+            var div_icon_1b20e02e8b023e5b1543bce705655798 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:green;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_76f56aefe9ed434b5e9e71c668fbe05c.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 2</b><br>Stop ke-1<br>Pelanggan 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76f56aefe9ed434b5e9e71c668fbe05c.setIcon(div_icon_1b20e02e8b023e5b1543bce705655798);
+            
+    
+            var marker_6b8bb32d7a74f96800017995bdc4fee3 = L.marker(
+                [-6.941723238028267, 107.77338219451906],
+                {
+}
+            ).addTo(feature_group_0ea4af097c67a21a293fde1d34e44187);
+        
+    
+            var div_icon_b847638c846c0ac56a7692a52db9dfbc = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:green;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_6b8bb32d7a74f96800017995bdc4fee3.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 2</b><br>Stop ke-2<br>Pelanggan 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b8bb32d7a74f96800017995bdc4fee3.setIcon(div_icon_b847638c846c0ac56a7692a52db9dfbc);
+            
+    
+        function geo_json_a07dbd914e7c2a213e10d677dbcb47f2_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "green", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_a07dbd914e7c2a213e10d677dbcb47f2_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_a07dbd914e7c2a213e10d677dbcb47f2 = L.geoJson(null, {
+                onEachFeature: geo_json_a07dbd914e7c2a213e10d677dbcb47f2_onEachFeature,
+            
+                style: geo_json_a07dbd914e7c2a213e10d677dbcb47f2_styler,
+            ...{
+}
+        });
+
+        function geo_json_a07dbd914e7c2a213e10d677dbcb47f2_add (data) {
+            geo_json_a07dbd914e7c2a213e10d677dbcb47f2
+                .addData(data);
+        }
+            geo_json_a07dbd914e7c2a213e10d677dbcb47f2_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.77543, -6.933538], [107.775332, -6.933425], [107.775271, -6.933348], [107.775226, -6.933294], [107.775187, -6.933245], [107.775136, -6.933196], [107.775082, -6.933118], [107.775035, -6.93302], [107.775007, -6.932916], [107.775288, -6.932834], [107.775371, -6.932812], [107.775288, -6.932834], [107.775007, -6.932916], [107.774818, -6.932968], [107.77461, -6.933016], [107.774449, -6.933058], [107.77439, -6.933075], [107.774254, -6.933112], [107.773895, -6.933206], [107.773614, -6.933275], [107.773508, -6.933305], [107.77336, -6.93335], [107.773331, -6.933531], [107.773372, -6.933676], [107.773386, -6.933754], [107.773397, -6.933846], [107.773399, -6.933951], [107.773393, -6.934094], [107.773387, -6.934187], [107.773382, -6.934288], [107.773376, -6.934399], [107.773368, -6.934505], [107.773356, -6.934594], [107.773354, -6.934733], [107.773358, -6.934815], [107.773362, -6.934931], [107.773379, -6.935003], [107.773409, -6.935098], [107.77346, -6.935182], [107.773543, -6.935291], [107.773618, -6.935392], [107.773691, -6.935457], [107.773731, -6.935524], [107.773753, -6.935562], [107.773796, -6.935788], [107.773857, -6.935886], [107.773895, -6.935938], [107.773954, -6.936018], [107.774001, -6.93608], [107.774042, -6.936154], [107.774057, -6.936249], [107.774027, -6.936301], [107.773913, -6.936372], [107.773838, -6.936395], [107.773698, -6.936395], [107.773551, -6.93641], [107.773431, -6.93643], [107.773385, -6.936459], [107.773358, -6.936477], [107.773306, -6.936539], [107.77328, -6.9366], [107.773295, -6.936672], [107.773333, -6.93674], [107.773383, -6.936803], [107.773543, -6.936937], [107.773705, -6.937098], [107.773772, -6.937178], [107.773849, -6.937266], [107.773925, -6.937362], [107.773991, -6.937466], [107.774032, -6.937555], [107.774059, -6.937726], [107.77406, -6.937782], [107.774046, -6.937874], [107.774035, -6.937992], [107.774017, -6.938142], [107.773982, -6.938428], [107.773893, -6.938818], [107.773887, -6.938852], [107.773836, -6.939042], [107.773736, -6.93938], [107.77362, -6.939755], [107.773584, -6.939818], [107.773547, -6.939876], [107.77347, -6.939953], [107.77315, -6.940267], [107.773053, -6.940361], [107.772981, -6.940455], [107.772961, -6.940527], [107.772943, -6.940605], [107.772935, -6.940684], [107.772945, -6.940748], [107.772954, -6.940801], [107.772966, -6.940892], [107.772996, -6.941038], [107.773022, -6.941131], [107.773078, -6.941324], [107.773116, -6.941457], [107.773223, -6.941776], [107.773116, -6.941457], [107.773078, -6.941324], [107.773022, -6.941131], [107.772996, -6.941038], [107.772966, -6.940892], [107.772954, -6.940801], [107.772945, -6.940748], [107.772935, -6.940684], [107.772943, -6.940605], [107.772961, -6.940527], [107.772981, -6.940455], [107.773053, -6.940361], [107.77315, -6.940267], [107.77347, -6.939953], [107.773547, -6.939876], [107.773584, -6.939818], [107.77362, -6.939755], [107.773736, -6.93938], [107.773836, -6.939042], [107.773887, -6.938852], [107.773893, -6.938818], [107.773982, -6.938428], [107.774017, -6.938142], [107.774035, -6.937992], [107.774046, -6.937874], [107.77406, -6.937782], [107.774059, -6.937726], [107.774032, -6.937555], [107.773991, -6.937466], [107.773925, -6.937362], [107.773849, -6.937266], [107.773772, -6.937178], [107.773705, -6.937098], [107.773543, -6.936937], [107.773383, -6.936803], [107.773333, -6.93674], [107.773295, -6.936672], [107.77328, -6.9366], [107.773306, -6.936539], [107.773358, -6.936477], [107.773385, -6.936459], [107.773431, -6.93643], [107.773551, -6.93641], [107.773698, -6.936395], [107.773838, -6.936395], [107.773913, -6.936372], [107.774027, -6.936301], [107.774057, -6.936249], [107.774042, -6.936154], [107.774001, -6.93608], [107.773954, -6.936018], [107.773895, -6.935938], [107.773857, -6.935886], [107.773796, -6.935788], [107.773753, -6.935562], [107.773731, -6.935524], [107.773691, -6.935457], [107.773618, -6.935392], [107.773778, -6.935235], [107.773849, -6.935104], [107.773882, -6.934949], [107.773923, -6.934775], [107.773931, -6.934698], [107.773972, -6.934541], [107.774015, -6.934405], [107.774044, -6.934283], [107.774114, -6.934047], [107.77418, -6.933953], [107.774331, -6.933999], [107.774451, -6.934074], [107.774669, -6.934129], [107.77478, -6.934124], [107.774909, -6.934075], [107.77503, -6.933933], [107.775131, -6.933863], [107.775453, -6.93369], [107.7755, -6.933633], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_a07dbd914e7c2a213e10d677dbcb47f2.addTo(feature_group_0ea4af097c67a21a293fde1d34e44187);
+        
+    
+            feature_group_0ea4af097c67a21a293fde1d34e44187.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_4fe77ff542b9de4610d773574704b26f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_9c6cf4e779b4c218803c00dd4d9a5a1d = L.marker(
+                [-6.935830170029567, 107.775255624862],
+                {
+}
+            ).addTo(feature_group_4fe77ff542b9de4610d773574704b26f);
+        
+    
+            var div_icon_fc28a73de8c7481980666baf5e6d6cc2 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:red;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_9c6cf4e779b4c218803c00dd4d9a5a1d.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 3</b><br>Stop ke-1<br>Pelanggan 8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9c6cf4e779b4c218803c00dd4d9a5a1d.setIcon(div_icon_fc28a73de8c7481980666baf5e6d6cc2);
+            
+    
+            var marker_cad6c34eb2db7c9ffc62eead68d95d39 = L.marker(
+                [-6.93566587205065, 107.7653669095793],
+                {
+}
+            ).addTo(feature_group_4fe77ff542b9de4610d773574704b26f);
+        
+    
+            var div_icon_9c611efa83e12be1647e6ec2b607b039 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:red;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_cad6c34eb2db7c9ffc62eead68d95d39.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 3</b><br>Stop ke-2<br>Pelanggan 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cad6c34eb2db7c9ffc62eead68d95d39.setIcon(div_icon_9c611efa83e12be1647e6ec2b607b039);
+            
+    
+            var marker_fb87fa5bcee1e4b2038110a4be10e7e4 = L.marker(
+                [-6.937709238326698, 107.76318170801292],
+                {
+}
+            ).addTo(feature_group_4fe77ff542b9de4610d773574704b26f);
+        
+    
+            var div_icon_fb23761f559d8d8eb64be3db3e4644e8 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:red;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        3\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_fb87fa5bcee1e4b2038110a4be10e7e4.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 3</b><br>Stop ke-3<br>Pelanggan 9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fb87fa5bcee1e4b2038110a4be10e7e4.setIcon(div_icon_fb23761f559d8d8eb64be3db3e4644e8);
+            
+    
+            var marker_5a217602167f16f08b86e8651c9df698 = L.marker(
+                [-6.941069937235362, 107.76626480986042],
+                {
+}
+            ).addTo(feature_group_4fe77ff542b9de4610d773574704b26f);
+        
+    
+            var div_icon_e0eab28e3fb1da15c9052d64f6a31403 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:red;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        4\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_5a217602167f16f08b86e8651c9df698.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 3</b><br>Stop ke-4<br>Pelanggan 10
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5a217602167f16f08b86e8651c9df698.setIcon(div_icon_e0eab28e3fb1da15c9052d64f6a31403);
+            
+    
+            var marker_61ac3c3614b513288a1df02d18a16ded = L.marker(
+                [-6.931388558388707, 107.77796883543252],
+                {
+}
+            ).addTo(feature_group_4fe77ff542b9de4610d773574704b26f);
+        
+    
+            var div_icon_2056f7abb9e7b1018e8e6e7b54ae53a1 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:red;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        5\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_61ac3c3614b513288a1df02d18a16ded.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 3</b><br>Stop ke-5<br>Pelanggan 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_61ac3c3614b513288a1df02d18a16ded.setIcon(div_icon_2056f7abb9e7b1018e8e6e7b54ae53a1);
+            
+    
+        function geo_json_735578991c83d90afbcf3c76994efa4f_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "red", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_735578991c83d90afbcf3c76994efa4f_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_735578991c83d90afbcf3c76994efa4f = L.geoJson(null, {
+                onEachFeature: geo_json_735578991c83d90afbcf3c76994efa4f_onEachFeature,
+            
+                style: geo_json_735578991c83d90afbcf3c76994efa4f_styler,
+            ...{
+}
+        });
+
+        function geo_json_735578991c83d90afbcf3c76994efa4f_add (data) {
+            geo_json_735578991c83d90afbcf3c76994efa4f
+                .addData(data);
+        }
+            geo_json_735578991c83d90afbcf3c76994efa4f_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.7755, -6.933633], [107.775453, -6.93369], [107.775131, -6.933863], [107.77503, -6.933933], [107.774909, -6.934075], [107.77478, -6.934124], [107.774669, -6.934129], [107.774451, -6.934074], [107.774331, -6.933999], [107.77418, -6.933953], [107.774114, -6.934047], [107.774044, -6.934283], [107.774015, -6.934405], [107.773972, -6.934541], [107.773931, -6.934698], [107.774181, -6.934726], [107.774255, -6.93474], [107.774537, -6.934726], [107.774579, -6.934749], [107.774602, -6.934803], [107.774685, -6.934998], [107.774769, -6.935166], [107.774806, -6.935379], [107.774816, -6.935572], [107.774838, -6.935738], [107.77484, -6.935837], [107.774838, -6.935738], [107.774816, -6.935572], [107.774338, -6.935542], [107.7743, -6.93554], [107.774284, -6.935529], [107.774276, -6.935508], [107.774274, -6.935464], [107.774253, -6.935453], [107.774223, -6.935451], [107.774028, -6.935439], [107.773691, -6.935457], [107.773618, -6.935392], [107.773543, -6.935291], [107.77346, -6.935182], [107.773409, -6.935098], [107.773379, -6.935003], [107.773362, -6.934931], [107.773358, -6.934815], [107.773354, -6.934733], [107.773356, -6.934594], [107.773368, -6.934505], [107.773376, -6.934399], [107.773382, -6.934288], [107.773387, -6.934187], [107.773393, -6.934094], [107.773399, -6.933951], [107.773397, -6.933846], [107.773386, -6.933754], [107.773372, -6.933676], [107.773331, -6.933531], [107.773286, -6.933483], [107.773244, -6.933442], [107.773198, -6.933398], [107.773016, -6.933438], [107.772739, -6.933499], [107.772505, -6.93357], [107.772304, -6.933626], [107.772171, -6.933671], [107.772097, -6.933694], [107.771976, -6.933734], [107.771955, -6.933741], [107.771722, -6.933818], [107.771653, -6.933836], [107.771435, -6.933909], [107.771376, -6.933929], [107.771243, -6.933968], [107.771113, -6.934011], [107.770961, -6.934064], [107.770916, -6.934077], [107.770541, -6.934197], [107.770236, -6.934292], [107.770185, -6.934307], [107.770034, -6.934352], [107.769987, -6.934364], [107.769876, -6.934396], [107.769737, -6.934434], [107.769662, -6.934455], [107.769468, -6.93451], [107.769265, -6.934565], [107.76923, -6.934576], [107.768942, -6.934658], [107.768796, -6.934702], [107.768696, -6.934726], [107.768459, -6.934792], [107.768412, -6.934805], [107.768379, -6.934814], [107.768216, -6.934859], [107.768205, -6.934862], [107.768037, -6.934913], [107.767827, -6.934979], [107.76762, -6.935037], [107.767577, -6.935049], [107.767397, -6.935112], [107.767283, -6.93515], [107.766918, -6.935248], [107.766485, -6.935366], [107.765877, -6.935541], [107.765626, -6.935619], [107.765514, -6.935648], [107.765383, -6.935687], [107.765373, -6.93569], [107.765193, -6.935738], [107.765086, -6.935767], [107.764973, -6.935797], [107.764515, -6.935924], [107.76447, -6.935937], [107.763678, -6.936166], [107.763495, -6.936217], [107.763187, -6.936307], [107.763166, -6.936527], [107.763141, -6.936731], [107.763142, -6.936801], [107.763154, -6.936929], [107.763114, -6.936944], [107.763087, -6.93697], [107.76307, -6.93701], [107.763064, -6.937068], [107.763063, -6.937104], [107.763078, -6.937296], [107.763122, -6.937566], [107.763116, -6.937653], [107.763106, -6.93769], [107.763106, -6.93769], [107.763106, -6.93769], [107.763116, -6.937653], [107.763122, -6.937566], [107.763078, -6.937296], [107.763063, -6.937104], [107.763064, -6.937068], [107.76307, -6.93701], [107.763087, -6.93697], [107.763114, -6.936944], [107.763154, -6.936929], [107.76324, -6.936922], [107.763307, -6.937133], [107.763333, -6.937197], [107.763338, -6.937306], [107.76338, -6.937378], [107.763418, -6.937436], [107.763479, -6.937521], [107.763552, -6.937708], [107.763609, -6.937854], [107.763644, -6.938075], [107.763668, -6.938257], [107.763673, -6.938505], [107.763659, -6.938679], [107.763617, -6.93886], [107.763578, -6.93903], [107.763553, -6.939223], [107.763539, -6.939403], [107.763515, -6.939555], [107.76349, -6.939693], [107.763443, -6.939937], [107.763398, -6.94015], [107.763375, -6.940354], [107.763364, -6.940908], [107.763379, -6.941001], [107.763379, -6.94113], [107.763376, -6.941327], [107.763362, -6.941525], [107.763335, -6.941652], [107.763289, -6.941745], [107.763224, -6.941872], [107.763162, -6.941931], [107.763108, -6.941984], [107.763005, -6.942047], [107.762929, -6.942062], [107.762809, -6.942048], [107.762716, -6.94202], [107.762674, -6.942], [107.762663, -6.942031], [107.762658, -6.942058], [107.762653, -6.942074], [107.76263, -6.942167], [107.762619, -6.942269], [107.76263, -6.942476], [107.762638, -6.942487], [107.763106, -6.942605], [107.763426, -6.942722], [107.763643, -6.942802], [107.763786, -6.942915], [107.763831, -6.942955], [107.763952, -6.942681], [107.764012, -6.942543], [107.764079, -6.942389], [107.764177, -6.942153], [107.764252, -6.941958], [107.764317, -6.941806], [107.764486, -6.941447], [107.764636, -6.941123], [107.764906, -6.9413], [107.764964, -6.941322], [107.765017, -6.941336], [107.765058, -6.941341], [107.765117, -6.941351], [107.765819, -6.941416], [107.766208, -6.94147], [107.765819, -6.941416], [107.765117, -6.941351], [107.765058, -6.941341], [107.765017, -6.941336], [107.764964, -6.941322], [107.764906, -6.9413], [107.764636, -6.941123], [107.764746, -6.940897], [107.764932, -6.940503], [107.76498, -6.940398], [107.765037, -6.940278], [107.765119, -6.94011], [107.765186, -6.939979], [107.765246, -6.93986], [107.765298, -6.939739], [107.765339, -6.939615], [107.765404, -6.939437], [107.765447, -6.939358], [107.765525, -6.939183], [107.76575, -6.938719], [107.765794, -6.938626], [107.765843, -6.938533], [107.765914, -6.938386], [107.76595, -6.938331], [107.765999, -6.93825], [107.766142, -6.937943], [107.766182, -6.937856], [107.766291, -6.937646], [107.766352, -6.937502], [107.766398, -6.937341], [107.76642, -6.937294], [107.766488, -6.937146], [107.766593, -6.936948], [107.766722, -6.936672], [107.766769, -6.93656], [107.766867, -6.93635], [107.766976, -6.936102], [107.767048, -6.935971], [107.767132, -6.935778], [107.767241, -6.935514], [107.767282, -6.935382], [107.767293, -6.935268], [107.767283, -6.93515], [107.767397, -6.935112], [107.767577, -6.935049], [107.767525, -6.935004], [107.767508, -6.934957], [107.767513, -6.934889], [107.767575, -6.934779], [107.767628, -6.934685], [107.767735, -6.934493], [107.767813, -6.93441], [107.767827, -6.934394], [107.767906, -6.934321], [107.768158, -6.934255], [107.768497, -6.934157], [107.768833, -6.934058], [107.768873, -6.934048], [107.769676, -6.933846], [107.770399, -6.933623], [107.770827, -6.933491], [107.770946, -6.933439], [107.771381, -6.933246], [107.771443, -6.933217], [107.771769, -6.933075], [107.771803, -6.933059], [107.771857, -6.933035], [107.772113, -6.932935], [107.772166, -6.932914], [107.772216, -6.932895], [107.772817, -6.932654], [107.772898, -6.932619], [107.773302, -6.932458], [107.773445, -6.932403], [107.773504, -6.93238], [107.773584, -6.932352], [107.773693, -6.932311], [107.773807, -6.932267], [107.773968, -6.932204], [107.774036, -6.932176], [107.774098, -6.932151], [107.77421, -6.93211], [107.774313, -6.93207], [107.774425, -6.932024], [107.77452, -6.931989], [107.774681, -6.931924], [107.774889, -6.931847], [107.775127, -6.931767], [107.77542, -6.931697], [107.775519, -6.931683], [107.775856, -6.931646], [107.776095, -6.931629], [107.776137, -6.931633], [107.776164, -6.931635], [107.776192, -6.931643], [107.776219, -6.931666], [107.776234, -6.931697], [107.776236, -6.931719], [107.77628, -6.931775], [107.776357, -6.93215], [107.776407, -6.932427], [107.776416, -6.932455], [107.776437, -6.932485], [107.776475, -6.932513], [107.776509, -6.932528], [107.776745, -6.932468], [107.776925, -6.932412], [107.777208, -6.932325], [107.777419, -6.932244], [107.777405, -6.932195], [107.777405, -6.931729], [107.777647, -6.931509], [107.777703, -6.931458], [107.777888, -6.931297], [107.777703, -6.931458], [107.777647, -6.931509], [107.777405, -6.931729], [107.777405, -6.932195], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_735578991c83d90afbcf3c76994efa4f.addTo(feature_group_4fe77ff542b9de4610d773574704b26f);
+        
+    
+            feature_group_4fe77ff542b9de4610d773574704b26f.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_564603c2993c85f12a01263f24311e2a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_4077c4ec7991f7cfe6df9b656b33d6ef = L.marker(
+                [-6.931388558388707, 107.77796883543252],
+                {
+}
+            ).addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            var div_icon_8c0dd85b971d9123b6f32c0d67b9c680 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:purple;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        0\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_4077c4ec7991f7cfe6df9b656b33d6ef.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 4</b><br>Stop ke-0<br>Pelanggan 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4077c4ec7991f7cfe6df9b656b33d6ef.setIcon(div_icon_8c0dd85b971d9123b6f32c0d67b9c680);
+            
+    
+            var marker_77a8ad384b4d5eaaab2b099147abf3a6 = L.marker(
+                [-6.932428270560457, 107.77638234205055],
+                {
+}
+            ).addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            var div_icon_1807a5b436e5af3ff4552ac3d69fcbf7 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:purple;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_77a8ad384b4d5eaaab2b099147abf3a6.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 4</b><br>Stop ke-2<br>Pelanggan 12
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77a8ad384b4d5eaaab2b099147abf3a6.setIcon(div_icon_1807a5b436e5af3ff4552ac3d69fcbf7);
+            
+    
+            var marker_a81a53597eb86b2538dbd686d38f2bfd = L.marker(
+                [-6.933358674537885, 107.77712205487316],
+                {
+}
+            ).addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            var div_icon_74019b3b5fb486f87f057e1f73703b71 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:purple;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        3\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_a81a53597eb86b2538dbd686d38f2bfd.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 4</b><br>Stop ke-3<br>Pelanggan 11
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a81a53597eb86b2538dbd686d38f2bfd.setIcon(div_icon_74019b3b5fb486f87f057e1f73703b71);
+            
+    
+            var marker_1c87a99c2408bb37b181c4fd85eb08e8 = L.marker(
+                [-6.934988787621002, 107.77462632150691],
+                {
+}
+            ).addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            var div_icon_762df8acf635d42b3fd35d469faf324c = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:purple;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        4\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_1c87a99c2408bb37b181c4fd85eb08e8.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 4</b><br>Stop ke-4<br>Pelanggan 13
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1c87a99c2408bb37b181c4fd85eb08e8.setIcon(div_icon_762df8acf635d42b3fd35d469faf324c);
+            
+    
+            var marker_2e25a58f883797a54699c42843caf719 = L.marker(
+                [-6.936284637164669, 107.77326580986036],
+                {
+}
+            ).addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            var div_icon_147e5e5ec56c40131a4caa9704fd0a19 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:purple;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        5\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_2e25a58f883797a54699c42843caf719.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 4</b><br>Stop ke-5<br>Pelanggan 15
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e25a58f883797a54699c42843caf719.setIcon(div_icon_147e5e5ec56c40131a4caa9704fd0a19);
+            
+    
+            var marker_c00caddf814046743ead6015783e29a6 = L.marker(
+                [-6.941723238028267, 107.77338219451906],
+                {
+}
+            ).addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            var div_icon_29e9eb375545eaee04fd2adb0c9c4e59 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:purple;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        6\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_c00caddf814046743ead6015783e29a6.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 4</b><br>Stop ke-6<br>Pelanggan 14
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c00caddf814046743ead6015783e29a6.setIcon(div_icon_29e9eb375545eaee04fd2adb0c9c4e59);
+            
+    
+        function geo_json_6c241091d3952d843086eb9004fb3f70_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "purple", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_6c241091d3952d843086eb9004fb3f70_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_6c241091d3952d843086eb9004fb3f70 = L.geoJson(null, {
+                onEachFeature: geo_json_6c241091d3952d843086eb9004fb3f70_onEachFeature,
+            
+                style: geo_json_6c241091d3952d843086eb9004fb3f70_styler,
+            ...{
+}
+        });
+
+        function geo_json_6c241091d3952d843086eb9004fb3f70_add (data) {
+            geo_json_6c241091d3952d843086eb9004fb3f70
+                .addData(data);
+        }
+            geo_json_6c241091d3952d843086eb9004fb3f70_add({"features": [{"geometry": {"coordinates": [[107.777888, -6.931297], [107.777703, -6.931458], [107.777647, -6.931509], [107.777405, -6.931729], [107.777405, -6.932195], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.775474, -6.933598], [107.77543, -6.933538], [107.775332, -6.933425], [107.775271, -6.933348], [107.775226, -6.933294], [107.775187, -6.933245], [107.775136, -6.933196], [107.775082, -6.933118], [107.775035, -6.93302], [107.775007, -6.932916], [107.774818, -6.932968], [107.77461, -6.933016], [107.774449, -6.933058], [107.77439, -6.933075], [107.774374, -6.932897], [107.774472, -6.932722], [107.774439, -6.932508], [107.774067, -6.932203], [107.774036, -6.932176], [107.774098, -6.932151], [107.77421, -6.93211], [107.774313, -6.93207], [107.774425, -6.932024], [107.77452, -6.931989], [107.774681, -6.931924], [107.774889, -6.931847], [107.775127, -6.931767], [107.77542, -6.931697], [107.775519, -6.931683], [107.775856, -6.931646], [107.776095, -6.931629], [107.776137, -6.931633], [107.776164, -6.931635], [107.776192, -6.931643], [107.776219, -6.931666], [107.776234, -6.931697], [107.776236, -6.931719], [107.77628, -6.931775], [107.776357, -6.93215], [107.776406, -6.932424], [107.776407, -6.932427], [107.776416, -6.932455], [107.776437, -6.932485], [107.776475, -6.932513], [107.776509, -6.932528], [107.776391, -6.932557], [107.776444, -6.932705], [107.776495, -6.932836], [107.77658, -6.933068], [107.776623, -6.933126], [107.777148, -6.933258], [107.776623, -6.933126], [107.77658, -6.933068], [107.776495, -6.932836], [107.776444, -6.932705], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.7755, -6.933633], [107.775453, -6.93369], [107.775131, -6.933863], [107.77503, -6.933933], [107.774909, -6.934075], [107.77478, -6.934124], [107.774669, -6.934129], [107.774451, -6.934074], [107.774331, -6.933999], [107.77418, -6.933953], [107.774114, -6.934047], [107.774044, -6.934283], [107.774015, -6.934405], [107.773972, -6.934541], [107.773931, -6.934698], [107.774181, -6.934726], [107.774255, -6.93474], [107.774537, -6.934726], [107.774579, -6.934749], [107.774602, -6.934803], [107.774673, -6.934969], [107.774685, -6.934998], [107.774769, -6.935166], [107.774806, -6.935379], [107.774816, -6.935572], [107.774838, -6.935738], [107.774841, -6.935918], [107.774828, -6.936079], [107.774825, -6.936184], [107.774828, -6.936321], [107.774707, -6.936331], [107.774557, -6.936332], [107.774325, -6.936303], [107.774057, -6.936249], [107.774027, -6.936301], [107.773913, -6.936372], [107.773838, -6.936395], [107.773698, -6.936395], [107.773551, -6.93641], [107.773431, -6.93643], [107.773385, -6.936459], [107.773331, -6.936408], [107.773239, -6.936383], [107.773331, -6.936408], [107.773385, -6.936459], [107.773358, -6.936477], [107.773306, -6.936539], [107.77328, -6.9366], [107.773295, -6.936672], [107.773333, -6.93674], [107.773383, -6.936803], [107.773543, -6.936937], [107.773705, -6.937098], [107.773772, -6.937178], [107.773849, -6.937266], [107.773925, -6.937362], [107.773991, -6.937466], [107.774032, -6.937555], [107.774059, -6.937726], [107.77406, -6.937782], [107.774046, -6.937874], [107.774035, -6.937992], [107.774017, -6.938142], [107.773982, -6.938428], [107.773893, -6.938818], [107.773887, -6.938852], [107.773836, -6.939042], [107.773736, -6.93938], [107.77362, -6.939755], [107.773584, -6.939818], [107.773547, -6.939876], [107.77347, -6.939953], [107.77315, -6.940267], [107.773053, -6.940361], [107.772981, -6.940455], [107.772961, -6.940527], [107.772943, -6.940605], [107.772935, -6.940684], [107.772945, -6.940748], [107.772954, -6.940801], [107.772966, -6.940892], [107.772996, -6.941038], [107.773022, -6.941131], [107.773078, -6.941324], [107.773116, -6.941457], [107.773223, -6.941776], [107.773116, -6.941457], [107.773078, -6.941324], [107.773022, -6.941131], [107.772996, -6.941038], [107.772966, -6.940892], [107.772954, -6.940801], [107.772945, -6.940748], [107.772935, -6.940684], [107.772943, -6.940605], [107.772961, -6.940527], [107.772981, -6.940455], [107.773053, -6.940361], [107.77315, -6.940267], [107.77347, -6.939953], [107.773547, -6.939876], [107.773584, -6.939818], [107.77362, -6.939755], [107.773736, -6.93938], [107.773836, -6.939042], [107.773887, -6.938852], [107.773893, -6.938818], [107.773982, -6.938428], [107.774017, -6.938142], [107.774035, -6.937992], [107.774046, -6.937874], [107.77406, -6.937782], [107.774059, -6.937726], [107.774032, -6.937555], [107.773991, -6.937466], [107.773925, -6.937362], [107.773849, -6.937266], [107.773772, -6.937178], [107.773705, -6.937098], [107.773543, -6.936937], [107.773383, -6.936803], [107.773333, -6.93674], [107.773295, -6.936672], [107.77328, -6.9366], [107.773306, -6.936539], [107.773358, -6.936477], [107.773385, -6.936459], [107.773431, -6.93643], [107.773551, -6.93641], [107.773698, -6.936395], [107.773838, -6.936395], [107.773913, -6.936372], [107.774027, -6.936301], [107.774057, -6.936249], [107.774042, -6.936154], [107.774001, -6.93608], [107.773954, -6.936018], [107.773895, -6.935938], [107.773857, -6.935886], [107.773796, -6.935788], [107.773753, -6.935562], [107.773731, -6.935524], [107.773691, -6.935457], [107.773618, -6.935392], [107.773778, -6.935235], [107.773849, -6.935104], [107.773882, -6.934949], [107.773923, -6.934775], [107.773931, -6.934698], [107.773972, -6.934541], [107.774015, -6.934405], [107.774044, -6.934283], [107.774114, -6.934047], [107.77418, -6.933953], [107.774331, -6.933999], [107.774451, -6.934074], [107.774669, -6.934129], [107.77478, -6.934124], [107.774909, -6.934075], [107.77503, -6.933933], [107.775131, -6.933863], [107.775453, -6.93369], [107.7755, -6.933633], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_6c241091d3952d843086eb9004fb3f70.addTo(feature_group_564603c2993c85f12a01263f24311e2a);
+        
+    
+            feature_group_564603c2993c85f12a01263f24311e2a.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_30ad2c6a8f4eb7b2dd425ae48b111891 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_eb600e0b79c9d024ac504378022ea510 = L.marker(
+                [-6.935791639367849, 107.77077091418153],
+                {
+}
+            ).addTo(feature_group_30ad2c6a8f4eb7b2dd425ae48b111891);
+        
+    
+            var div_icon_51bf0e71f9fb76a8cb5e524cb6ecc6e6 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:orange;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_eb600e0b79c9d024ac504378022ea510.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 5</b><br>Stop ke-1<br>Pelanggan 18
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eb600e0b79c9d024ac504378022ea510.setIcon(div_icon_51bf0e71f9fb76a8cb5e524cb6ecc6e6);
+            
+    
+            var marker_f8aefb19df44d361a89440fbdcfb4e0f = L.marker(
+                [-6.93566587205065, 107.7653669095793],
+                {
+}
+            ).addTo(feature_group_30ad2c6a8f4eb7b2dd425ae48b111891);
+        
+    
+            var div_icon_83c89f8726d04942dc79b68c26995cbd = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:orange;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_f8aefb19df44d361a89440fbdcfb4e0f.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 5</b><br>Stop ke-2<br>Pelanggan 16
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f8aefb19df44d361a89440fbdcfb4e0f.setIcon(div_icon_83c89f8726d04942dc79b68c26995cbd);
+            
+    
+            var marker_705e812949dc8428a4fe7351aebcef8b = L.marker(
+                [-6.936633936117592, 107.76357495218969],
+                {
+}
+            ).addTo(feature_group_30ad2c6a8f4eb7b2dd425ae48b111891);
+        
+    
+            var div_icon_53804aad861c6199311113fa7a8a701a = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:orange;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        3\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_705e812949dc8428a4fe7351aebcef8b.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 5</b><br>Stop ke-3<br>Pelanggan 19
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_705e812949dc8428a4fe7351aebcef8b.setIcon(div_icon_53804aad861c6199311113fa7a8a701a);
+            
+    
+            var marker_cf58dd8b6743d46415cb9ab3a7c15c55 = L.marker(
+                [-6.924103683697001, 107.77914082520157],
+                {
+}
+            ).addTo(feature_group_30ad2c6a8f4eb7b2dd425ae48b111891);
+        
+    
+            var div_icon_6eb34f80d90dfdaa09f7441d33f35f28 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:orange;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        4\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_cf58dd8b6743d46415cb9ab3a7c15c55.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 5</b><br>Stop ke-4<br>Pelanggan 17
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf58dd8b6743d46415cb9ab3a7c15c55.setIcon(div_icon_6eb34f80d90dfdaa09f7441d33f35f28);
+            
+    
+            var marker_a408d9c4fbf504398fe098f7718e186e = L.marker(
+                [-6.934594038519328, 107.77684982150684],
+                {
+}
+            ).addTo(feature_group_30ad2c6a8f4eb7b2dd425ae48b111891);
+        
+    
+            var div_icon_a254bd516d70a98d25de9409713150d2 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:orange;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        5\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_a408d9c4fbf504398fe098f7718e186e.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 5</b><br>Stop ke-5<br>Pelanggan 20
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a408d9c4fbf504398fe098f7718e186e.setIcon(div_icon_a254bd516d70a98d25de9409713150d2);
+            
+    
+        function geo_json_2245463d83d2b940af7620ad1faf7706_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "orange", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_2245463d83d2b940af7620ad1faf7706_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_2245463d83d2b940af7620ad1faf7706 = L.geoJson(null, {
+                onEachFeature: geo_json_2245463d83d2b940af7620ad1faf7706_onEachFeature,
+            
+                style: geo_json_2245463d83d2b940af7620ad1faf7706_styler,
+            ...{
+}
+        });
+
+        function geo_json_2245463d83d2b940af7620ad1faf7706_add (data) {
+            geo_json_2245463d83d2b940af7620ad1faf7706
+                .addData(data);
+        }
+            geo_json_2245463d83d2b940af7620ad1faf7706_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.77543, -6.933538], [107.775332, -6.933425], [107.775271, -6.933348], [107.775226, -6.933294], [107.775187, -6.933245], [107.775136, -6.933196], [107.775082, -6.933118], [107.775035, -6.93302], [107.775007, -6.932916], [107.774818, -6.932968], [107.77461, -6.933016], [107.774449, -6.933058], [107.77439, -6.933075], [107.774254, -6.933112], [107.773895, -6.933206], [107.773614, -6.933275], [107.773508, -6.933305], [107.77336, -6.93335], [107.773198, -6.933398], [107.773016, -6.933438], [107.772739, -6.933499], [107.772505, -6.93357], [107.772304, -6.933626], [107.772171, -6.933671], [107.772097, -6.933694], [107.771976, -6.933734], [107.771955, -6.933741], [107.771722, -6.933818], [107.771653, -6.933836], [107.771435, -6.933909], [107.771376, -6.933929], [107.771243, -6.933968], [107.771113, -6.934011], [107.770961, -6.934064], [107.770916, -6.934077], [107.770541, -6.934197], [107.770236, -6.934292], [107.770185, -6.934307], [107.770034, -6.934352], [107.769987, -6.934364], [107.769876, -6.934396], [107.769879, -6.934541], [107.769879, -6.934554], [107.769879, -6.934565], [107.769916, -6.934722], [107.769972, -6.934862], [107.770622, -6.935716], [107.7707, -6.935837], [107.770622, -6.935716], [107.769972, -6.934862], [107.769916, -6.934722], [107.769879, -6.934565], [107.769879, -6.934554], [107.769879, -6.934541], [107.769876, -6.934396], [107.769737, -6.934434], [107.769662, -6.934455], [107.769468, -6.93451], [107.769265, -6.934565], [107.76923, -6.934576], [107.768942, -6.934658], [107.768796, -6.934702], [107.768696, -6.934726], [107.768459, -6.934792], [107.768412, -6.934805], [107.768379, -6.934814], [107.768216, -6.934859], [107.768205, -6.934862], [107.768037, -6.934913], [107.767827, -6.934979], [107.76762, -6.935037], [107.767577, -6.935049], [107.767397, -6.935112], [107.767283, -6.93515], [107.766918, -6.935248], [107.766485, -6.935366], [107.765877, -6.935541], [107.765626, -6.935619], [107.765514, -6.935648], [107.765383, -6.935687], [107.765373, -6.93569], [107.765193, -6.935738], [107.765086, -6.935767], [107.764973, -6.935797], [107.764515, -6.935924], [107.76447, -6.935937], [107.763678, -6.936166], [107.763495, -6.936217], [107.763187, -6.936307], [107.763166, -6.936527], [107.763141, -6.936731], [107.763219, -6.936723], [107.763376, -6.936704], [107.763519, -6.936697], [107.763579, -6.936693], [107.763519, -6.936697], [107.763376, -6.936704], [107.763219, -6.936723], [107.763141, -6.936731], [107.763166, -6.936527], [107.763187, -6.936307], [107.762933, -6.936382], [107.7629, -6.936293], [107.763005, -6.936259], [107.763253, -6.936189], [107.763596, -6.936084], [107.764205, -6.935912], [107.764405, -6.935858], [107.76444, -6.935848], [107.764482, -6.935836], [107.765202, -6.935634], [107.766049, -6.935392], [107.766308, -6.935317], [107.766659, -6.93521], [107.767117, -6.935078], [107.767313, -6.935021], [107.76741, -6.934965], [107.767513, -6.934889], [107.767575, -6.934779], [107.767628, -6.934685], [107.767735, -6.934493], [107.767813, -6.93441], [107.767827, -6.934394], [107.767906, -6.934321], [107.768158, -6.934255], [107.768497, -6.934157], [107.768833, -6.934058], [107.768873, -6.934048], [107.769676, -6.933846], [107.770399, -6.933623], [107.770827, -6.933491], [107.770946, -6.933439], [107.771381, -6.933246], [107.771443, -6.933217], [107.771769, -6.933075], [107.771803, -6.933059], [107.771857, -6.933035], [107.772113, -6.932935], [107.772166, -6.932914], [107.772216, -6.932895], [107.772817, -6.932654], [107.772898, -6.932619], [107.773302, -6.932458], [107.773445, -6.932403], [107.773504, -6.93238], [107.773584, -6.932352], [107.773693, -6.932311], [107.773807, -6.932267], [107.773968, -6.932204], [107.774036, -6.932176], [107.774098, -6.932151], [107.77421, -6.93211], [107.774313, -6.93207], [107.774425, -6.932024], [107.77452, -6.931989], [107.774681, -6.931924], [107.774889, -6.931847], [107.775127, -6.931767], [107.77542, -6.931697], [107.775519, -6.931683], [107.775856, -6.931646], [107.776095, -6.931629], [107.776137, -6.931633], [107.776164, -6.931635], [107.776192, -6.931643], [107.776219, -6.931666], [107.776234, -6.931697], [107.776236, -6.931719], [107.77628, -6.931775], [107.776357, -6.93215], [107.776407, -6.932427], [107.776416, -6.932455], [107.776437, -6.932485], [107.776475, -6.932513], [107.776509, -6.932528], [107.776745, -6.932468], [107.776925, -6.932412], [107.777208, -6.932325], [107.777419, -6.932244], [107.777444, -6.932234], [107.777928, -6.932061], [107.778101, -6.931994], [107.778259, -6.931932], [107.778314, -6.931909], [107.778465, -6.931852], [107.778487, -6.931843], [107.77854, -6.931822], [107.778568, -6.931812], [107.778701, -6.931754], [107.778956, -6.931654], [107.779034, -6.93162], [107.779138, -6.931572], [107.77927, -6.931502], [107.779276, -6.931499], [107.779614, -6.93137], [107.779796, -6.93129], [107.779956, -6.931226], [107.780075, -6.931165], [107.780219, -6.931067], [107.78027, -6.931026], [107.780362, -6.930851], [107.780395, -6.930718], [107.780399, -6.930642], [107.780417, -6.930489], [107.780401, -6.930249], [107.780432, -6.930023], [107.780449, -6.929871], [107.780507, -6.929695], [107.780531, -6.929635], [107.780578, -6.929569], [107.780679, -6.929445], [107.780781, -6.929326], [107.78092, -6.92914], [107.780977, -6.929049], [107.781076, -6.928896], [107.780986, -6.928789], [107.780938, -6.928718], [107.780891, -6.928618], [107.780854, -6.928554], [107.780832, -6.928417], [107.78086, -6.928228], [107.780884, -6.928028], [107.780879, -6.927801], [107.780858, -6.927652], [107.780842, -6.927596], [107.780814, -6.927534], [107.780793, -6.927494], [107.78077, -6.927449], [107.780716, -6.927345], [107.780659, -6.927259], [107.780585, -6.927083], [107.780534, -6.926951], [107.780424, -6.926755], [107.780326, -6.926589], [107.780207, -6.926315], [107.780129, -6.926154], [107.780103, -6.926116], [107.78004, -6.925923], [107.78, -6.925749], [107.779878, -6.925391], [107.779815, -6.925213], [107.779782, -6.925125], [107.779764, -6.925072], [107.779744, -6.925], [107.779748, -6.924911], [107.779799, -6.924798], [107.779839, -6.924707], [107.779831, -6.924655], [107.779828, -6.924609], [107.779817, -6.924563], [107.779803, -6.924545], [107.779787, -6.924523], [107.779723, -6.924493], [107.779665, -6.924485], [107.779499, -6.924465], [107.779433, -6.924303], [107.779381, -6.924204], [107.779325, -6.924094], [107.779323, -6.924078], [107.779325, -6.924094], [107.779381, -6.924204], [107.779433, -6.924303], [107.779499, -6.924465], [107.779665, -6.924485], [107.779723, -6.924493], [107.779787, -6.924523], [107.779803, -6.924545], [107.779817, -6.924563], [107.779828, -6.924609], [107.779831, -6.924655], [107.779839, -6.924707], [107.779799, -6.924798], [107.779748, -6.924911], [107.779744, -6.925], [107.779764, -6.925072], [107.779782, -6.925125], [107.779815, -6.925213], [107.779878, -6.925391], [107.78, -6.925749], [107.78004, -6.925923], [107.780103, -6.926116], [107.780129, -6.926154], [107.780207, -6.926315], [107.780326, -6.926589], [107.780424, -6.926755], [107.780534, -6.926951], [107.780585, -6.927083], [107.780659, -6.927259], [107.780716, -6.927345], [107.78077, -6.927449], [107.780793, -6.927494], [107.780814, -6.927534], [107.780842, -6.927596], [107.780858, -6.927652], [107.780879, -6.927801], [107.780884, -6.928028], [107.78086, -6.928228], [107.780832, -6.928417], [107.780854, -6.928554], [107.780891, -6.928618], [107.780938, -6.928718], [107.780986, -6.928789], [107.781076, -6.928896], [107.780977, -6.929049], [107.78092, -6.92914], [107.780781, -6.929326], [107.780679, -6.929445], [107.780578, -6.929569], [107.780531, -6.929635], [107.780507, -6.929695], [107.780449, -6.929871], [107.780432, -6.930023], [107.780401, -6.930249], [107.780417, -6.930489], [107.780399, -6.930642], [107.780395, -6.930718], [107.780362, -6.930851], [107.78027, -6.931026], [107.780219, -6.931067], [107.780075, -6.931165], [107.779956, -6.931226], [107.779796, -6.93129], [107.779614, -6.93137], [107.779276, -6.931499], [107.77927, -6.931502], [107.779138, -6.931572], [107.779034, -6.93162], [107.778956, -6.931654], [107.778701, -6.931754], [107.778568, -6.931812], [107.77854, -6.931822], [107.778487, -6.931843], [107.778465, -6.931852], [107.778314, -6.931909], [107.778259, -6.931932], [107.778101, -6.931994], [107.777928, -6.932061], [107.777444, -6.932234], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.7755, -6.933633], [107.775579, -6.933728], [107.775626, -6.93385], [107.775648, -6.933969], [107.77564, -6.934063], [107.775663, -6.934152], [107.775691, -6.934223], [107.775695, -6.934287], [107.775676, -6.934344], [107.775622, -6.934367], [107.775693, -6.934728], [107.775697, -6.93484], [107.775698, -6.934849], [107.775699, -6.934854], [107.775702, -6.934858], [107.775796, -6.934869], [107.776289, -6.934856], [107.77642, -6.934856], [107.776482, -6.934867], [107.776632, -6.934869], [107.776765, -6.934558], [107.776632, -6.934869], [107.776482, -6.934867], [107.77642, -6.934856], [107.776289, -6.934856], [107.775796, -6.934869], [107.775702, -6.934858], [107.775699, -6.934854], [107.775698, -6.934849], [107.775697, -6.93484], [107.775693, -6.934728], [107.775622, -6.934367], [107.775676, -6.934344], [107.775695, -6.934287], [107.775691, -6.934223], [107.775663, -6.934152], [107.77564, -6.934063], [107.775648, -6.933969], [107.775626, -6.93385], [107.775579, -6.933728], [107.7755, -6.933633], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_2245463d83d2b940af7620ad1faf7706.addTo(feature_group_30ad2c6a8f4eb7b2dd425ae48b111891);
+        
+    
+            feature_group_30ad2c6a8f4eb7b2dd425ae48b111891.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f0ce59c05ae1c861f84a9e3f259c07cd = L.marker(
+                [-6.934594038519328, 107.77684982150684],
+                {
+}
+            ).addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            var div_icon_e2514c4de19c4ed0b6e9a5a73eff2bee = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:brown;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        0\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_f0ce59c05ae1c861f84a9e3f259c07cd.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 6</b><br>Stop ke-0<br>Pelanggan 20
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f0ce59c05ae1c861f84a9e3f259c07cd.setIcon(div_icon_e2514c4de19c4ed0b6e9a5a73eff2bee);
+            
+    
+            var marker_9b86c21b17068b5e272adb52333291e1 = L.marker(
+                [-6.934654788066943, 107.77398440829305],
+                {
+}
+            ).addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            var div_icon_eff529a616cc2930b4063c8f15a76cb4 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:brown;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_9b86c21b17068b5e272adb52333291e1.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 6</b><br>Stop ke-2<br>Pelanggan 22
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b86c21b17068b5e272adb52333291e1.setIcon(div_icon_eff529a616cc2930b4063c8f15a76cb4);
+            
+    
+            var marker_c6715ff7fb931b0601ab58b83280dda1 = L.marker(
+                [-6.938510539149997, 107.77397376568364],
+                {
+}
+            ).addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            var div_icon_26cec5aa6cf47a0a8de32e65400cd2ee = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:brown;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        3\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_c6715ff7fb931b0601ab58b83280dda1.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 6</b><br>Stop ke-3<br>Pelanggan 21
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c6715ff7fb931b0601ab58b83280dda1.setIcon(div_icon_26cec5aa6cf47a0a8de32e65400cd2ee);
+            
+    
+            var marker_a563b20e6981e21a4e4a0cec53b816c9 = L.marker(
+                [-6.93618757207842, 107.77500489972164],
+                {
+}
+            ).addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            var div_icon_8c53d455eb621cbc60bbd56778e6d1ba = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:brown;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        4\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_a563b20e6981e21a4e4a0cec53b816c9.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 6</b><br>Stop ke-4<br>Pelanggan 23
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a563b20e6981e21a4e4a0cec53b816c9.setIcon(div_icon_8c53d455eb621cbc60bbd56778e6d1ba);
+            
+    
+            var marker_c1a8eb51ac0fb2a4c2b59fd0ee45779d = L.marker(
+                [-6.932735434868364, 107.77820072335416],
+                {
+}
+            ).addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            var div_icon_da69b0286cb8142d7fdedf066656785e = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:brown;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        5\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_c1a8eb51ac0fb2a4c2b59fd0ee45779d.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 6</b><br>Stop ke-5<br>Pelanggan 24
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c1a8eb51ac0fb2a4c2b59fd0ee45779d.setIcon(div_icon_da69b0286cb8142d7fdedf066656785e);
+            
+    
+            var marker_5610df89faea75e30b1915cc982365f1 = L.marker(
+                [-6.930210783228452, 107.78038932520168],
+                {
+}
+            ).addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            var div_icon_84466548fa46687b95a0b4276b08b022 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:brown;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        6\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_5610df89faea75e30b1915cc982365f1.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 6</b><br>Stop ke-6<br>Pelanggan 25
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5610df89faea75e30b1915cc982365f1.setIcon(div_icon_84466548fa46687b95a0b4276b08b022);
+            
+    
+        function geo_json_95c7edcadea4bc4f22ba63c99c889685_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "brown", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_95c7edcadea4bc4f22ba63c99c889685_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_95c7edcadea4bc4f22ba63c99c889685 = L.geoJson(null, {
+                onEachFeature: geo_json_95c7edcadea4bc4f22ba63c99c889685_onEachFeature,
+            
+                style: geo_json_95c7edcadea4bc4f22ba63c99c889685_styler,
+            ...{
+}
+        });
+
+        function geo_json_95c7edcadea4bc4f22ba63c99c889685_add (data) {
+            geo_json_95c7edcadea4bc4f22ba63c99c889685
+                .addData(data);
+        }
+            geo_json_95c7edcadea4bc4f22ba63c99c889685_add({"features": [{"geometry": {"coordinates": [[107.776765, -6.934558], [107.776632, -6.934869], [107.776482, -6.934867], [107.77642, -6.934856], [107.776289, -6.934856], [107.775796, -6.934869], [107.775702, -6.934858], [107.775699, -6.934854], [107.775698, -6.934849], [107.775697, -6.93484], [107.775693, -6.934728], [107.775622, -6.934367], [107.775676, -6.934344], [107.775695, -6.934287], [107.775691, -6.934223], [107.775663, -6.934152], [107.77564, -6.934063], [107.775648, -6.933969], [107.775626, -6.93385], [107.775579, -6.933728], [107.7755, -6.933633], [107.775474, -6.933598], [107.7755, -6.933633], [107.775453, -6.93369], [107.775131, -6.933863], [107.77503, -6.933933], [107.774909, -6.934075], [107.77478, -6.934124], [107.774669, -6.934129], [107.774451, -6.934074], [107.774331, -6.933999], [107.77418, -6.933953], [107.774114, -6.934047], [107.774044, -6.934283], [107.774015, -6.934405], [107.773972, -6.934541], [107.773945, -6.934645], [107.773931, -6.934698], [107.773923, -6.934775], [107.773882, -6.934949], [107.773849, -6.935104], [107.773778, -6.935235], [107.773618, -6.935392], [107.773691, -6.935457], [107.773731, -6.935524], [107.773753, -6.935562], [107.773796, -6.935788], [107.773857, -6.935886], [107.773895, -6.935938], [107.773954, -6.936018], [107.774001, -6.93608], [107.774042, -6.936154], [107.774057, -6.936249], [107.774027, -6.936301], [107.773913, -6.936372], [107.773838, -6.936395], [107.773698, -6.936395], [107.773551, -6.93641], [107.773431, -6.93643], [107.773385, -6.936459], [107.773358, -6.936477], [107.773306, -6.936539], [107.77328, -6.9366], [107.773295, -6.936672], [107.773333, -6.93674], [107.773383, -6.936803], [107.773543, -6.936937], [107.773705, -6.937098], [107.773772, -6.937178], [107.773849, -6.937266], [107.773925, -6.937362], [107.773991, -6.937466], [107.774032, -6.937555], [107.774059, -6.937726], [107.77406, -6.937782], [107.774046, -6.937874], [107.774035, -6.937992], [107.774017, -6.938142], [107.773982, -6.938428], [107.773964, -6.938509], [107.773982, -6.938428], [107.774017, -6.938142], [107.774035, -6.937992], [107.774046, -6.937874], [107.77406, -6.937782], [107.774059, -6.937726], [107.774032, -6.937555], [107.773991, -6.937466], [107.773925, -6.937362], [107.773849, -6.937266], [107.773772, -6.937178], [107.773705, -6.937098], [107.773543, -6.936937], [107.773383, -6.936803], [107.773333, -6.93674], [107.773295, -6.936672], [107.77328, -6.9366], [107.773306, -6.936539], [107.773358, -6.936477], [107.773385, -6.936459], [107.773431, -6.93643], [107.773551, -6.93641], [107.773698, -6.936395], [107.773838, -6.936395], [107.773913, -6.936372], [107.774027, -6.936301], [107.774057, -6.936249], [107.774325, -6.936303], [107.774557, -6.936332], [107.774707, -6.936331], [107.774828, -6.936321], [107.774942, -6.936302], [107.775024, -6.936286], [107.775157, -6.936261], [107.77524, -6.936254], [107.775272, -6.936263], [107.775307, -6.936271], [107.775392, -6.936384], [107.775481, -6.936506], [107.77549, -6.936516], [107.7755, -6.936523], [107.775516, -6.936523], [107.775534, -6.936519], [107.775675, -6.936484], [107.775711, -6.936495], [107.775733, -6.936512], [107.775746, -6.936526], [107.775837, -6.936619], [107.775892, -6.936649], [107.776, -6.936737], [107.776107, -6.936783], [107.776188, -6.936799], [107.776238, -6.936806], [107.77625, -6.93685], [107.776255, -6.93688], [107.776285, -6.936888], [107.776416, -6.936889], [107.776578, -6.936904], [107.776746, -6.936926], [107.777486, -6.937022], [107.777504, -6.937015], [107.777563, -6.936756], [107.777592, -6.936542], [107.778942, -6.936732], [107.77896, -6.936657], [107.779015, -6.936609], [107.779023, -6.936599], [107.779059, -6.936553], [107.779096, -6.936424], [107.779141, -6.936305], [107.779166, -6.93618], [107.779171, -6.936096], [107.779141, -6.935997], [107.779083, -6.935916], [107.779036, -6.935865], [107.779, -6.93581], [107.778983, -6.935757], [107.77896, -6.935707], [107.778932, -6.935637], [107.77892, -6.935585], [107.778913, -6.935548], [107.778903, -6.935525], [107.778864, -6.935445], [107.778812, -6.935378], [107.778762, -6.935341], [107.778728, -6.935262], [107.778689, -6.935196], [107.778655, -6.935105], [107.778585, -6.935006], [107.77855, -6.93491], [107.77851, -6.934835], [107.778505, -6.934708], [107.778508, -6.93463], [107.778523, -6.93458], [107.778526, -6.934516], [107.778532, -6.934423], [107.77851, -6.93433], [107.778467, -6.934239], [107.778411, -6.934135], [107.77833, -6.933986], [107.778293, -6.933832], [107.778261, -6.933664], [107.778239, -6.933557], [107.778218, -6.933446], [107.778151, -6.933146], [107.778131, -6.933081], [107.778079, -6.932762], [107.778078, -6.932754], [107.77806, -6.93264], [107.778026, -6.932486], [107.777993, -6.93231], [107.777958, -6.932166], [107.777948, -6.932117], [107.777928, -6.932061], [107.778101, -6.931994], [107.778259, -6.931932], [107.778314, -6.931909], [107.778465, -6.931852], [107.778487, -6.931843], [107.77854, -6.931822], [107.778568, -6.931812], [107.778701, -6.931754], [107.778956, -6.931654], [107.779034, -6.93162], [107.779138, -6.931572], [107.77927, -6.931502], [107.779276, -6.931499], [107.779614, -6.93137], [107.779796, -6.93129], [107.779956, -6.931226], [107.780075, -6.931165], [107.780219, -6.931067], [107.78027, -6.931026], [107.780362, -6.930851], [107.780395, -6.930718], [107.780399, -6.930642], [107.780417, -6.930489], [107.780401, -6.930249], [107.780406, -6.930213], [107.780401, -6.930249], [107.780417, -6.930489], [107.780399, -6.930642], [107.780395, -6.930718], [107.780362, -6.930851], [107.78027, -6.931026], [107.780219, -6.931067], [107.780075, -6.931165], [107.779956, -6.931226], [107.779796, -6.93129], [107.779614, -6.93137], [107.779276, -6.931499], [107.77927, -6.931502], [107.779138, -6.931572], [107.779034, -6.93162], [107.778956, -6.931654], [107.778701, -6.931754], [107.778568, -6.931812], [107.77854, -6.931822], [107.778487, -6.931843], [107.778465, -6.931852], [107.778314, -6.931909], [107.778259, -6.931932], [107.778101, -6.931994], [107.777928, -6.932061], [107.777444, -6.932234], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_95c7edcadea4bc4f22ba63c99c889685.addTo(feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b);
+        
+    
+            feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_a3d17fb2924a1e553d7dddeb2c9b35c1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_ee751b5d4e726b8b6490e02e6f5f8b45 = L.marker(
+                [-6.939037189574593, 107.77399662150694],
+                {
+}
+            ).addTo(feature_group_a3d17fb2924a1e553d7dddeb2c9b35c1);
+        
+    
+            var div_icon_aa6fb9673b6f73f6de1f3253f51945b1 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:black;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_ee751b5d4e726b8b6490e02e6f5f8b45.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 7</b><br>Stop ke-1<br>Pelanggan 26
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ee751b5d4e726b8b6490e02e6f5f8b45.setIcon(div_icon_aa6fb9673b6f73f6de1f3253f51945b1);
+            
+    
+            var marker_1f7c36156423d573f9ddee69f89ccbbd = L.marker(
+                [-6.924567631001777, 107.78043956568348],
+                {
+}
+            ).addTo(feature_group_a3d17fb2924a1e553d7dddeb2c9b35c1);
+        
+    
+            var div_icon_896449e8185d83b8321fb636cc11e578 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:black;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_1f7c36156423d573f9ddee69f89ccbbd.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 7</b><br>Stop ke-2<br>Pelanggan 27
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1f7c36156423d573f9ddee69f89ccbbd.setIcon(div_icon_896449e8185d83b8321fb636cc11e578);
+            
+    
+        function geo_json_3e41f7156683094fdaeee4a8c23d6601_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "black", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_3e41f7156683094fdaeee4a8c23d6601_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_3e41f7156683094fdaeee4a8c23d6601 = L.geoJson(null, {
+                onEachFeature: geo_json_3e41f7156683094fdaeee4a8c23d6601_onEachFeature,
+            
+                style: geo_json_3e41f7156683094fdaeee4a8c23d6601_styler,
+            ...{
+}
+        });
+
+        function geo_json_3e41f7156683094fdaeee4a8c23d6601_add (data) {
+            geo_json_3e41f7156683094fdaeee4a8c23d6601
+                .addData(data);
+        }
+            geo_json_3e41f7156683094fdaeee4a8c23d6601_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.7755, -6.933633], [107.775453, -6.93369], [107.775131, -6.933863], [107.77503, -6.933933], [107.774909, -6.934075], [107.77478, -6.934124], [107.774669, -6.934129], [107.774451, -6.934074], [107.774331, -6.933999], [107.77418, -6.933953], [107.774114, -6.934047], [107.774044, -6.934283], [107.774015, -6.934405], [107.773972, -6.934541], [107.773931, -6.934698], [107.773923, -6.934775], [107.773882, -6.934949], [107.773849, -6.935104], [107.773778, -6.935235], [107.773618, -6.935392], [107.773691, -6.935457], [107.773731, -6.935524], [107.773753, -6.935562], [107.773796, -6.935788], [107.773857, -6.935886], [107.773895, -6.935938], [107.773954, -6.936018], [107.774001, -6.93608], [107.774042, -6.936154], [107.774057, -6.936249], [107.774027, -6.936301], [107.773913, -6.936372], [107.773838, -6.936395], [107.773698, -6.936395], [107.773551, -6.93641], [107.773431, -6.93643], [107.773385, -6.936459], [107.773358, -6.936477], [107.773306, -6.936539], [107.77328, -6.9366], [107.773295, -6.936672], [107.773333, -6.93674], [107.773383, -6.936803], [107.773543, -6.936937], [107.773705, -6.937098], [107.773772, -6.937178], [107.773849, -6.937266], [107.773925, -6.937362], [107.773991, -6.937466], [107.774032, -6.937555], [107.774059, -6.937726], [107.77406, -6.937782], [107.774046, -6.937874], [107.774035, -6.937992], [107.774017, -6.938142], [107.773982, -6.938428], [107.773893, -6.938818], [107.773887, -6.938852], [107.774038, -6.938895], [107.773887, -6.938852], [107.773893, -6.938818], [107.773982, -6.938428], [107.774017, -6.938142], [107.774035, -6.937992], [107.774046, -6.937874], [107.77406, -6.937782], [107.774059, -6.937726], [107.774032, -6.937555], [107.773991, -6.937466], [107.773925, -6.937362], [107.773849, -6.937266], [107.773772, -6.937178], [107.773705, -6.937098], [107.773543, -6.936937], [107.773383, -6.936803], [107.773333, -6.93674], [107.773295, -6.936672], [107.77328, -6.9366], [107.773306, -6.936539], [107.773358, -6.936477], [107.773385, -6.936459], [107.773431, -6.93643], [107.773551, -6.93641], [107.773698, -6.936395], [107.773838, -6.936395], [107.773913, -6.936372], [107.774027, -6.936301], [107.774057, -6.936249], [107.774325, -6.936303], [107.774557, -6.936332], [107.774707, -6.936331], [107.774828, -6.936321], [107.774942, -6.936302], [107.775157, -6.936261], [107.77524, -6.936254], [107.775272, -6.936263], [107.775307, -6.936271], [107.775392, -6.936384], [107.775481, -6.936506], [107.77549, -6.936516], [107.7755, -6.936523], [107.775516, -6.936523], [107.775534, -6.936519], [107.775675, -6.936484], [107.775711, -6.936495], [107.775733, -6.936512], [107.775746, -6.936526], [107.775837, -6.936619], [107.775892, -6.936649], [107.776, -6.936737], [107.776107, -6.936783], [107.776188, -6.936799], [107.776238, -6.936806], [107.77625, -6.93685], [107.776255, -6.93688], [107.776285, -6.936888], [107.776416, -6.936889], [107.776578, -6.936904], [107.776746, -6.936926], [107.777486, -6.937022], [107.777504, -6.937015], [107.777563, -6.936756], [107.777592, -6.936542], [107.778942, -6.936732], [107.77896, -6.936657], [107.779015, -6.936609], [107.779023, -6.936599], [107.779059, -6.936553], [107.779096, -6.936424], [107.779141, -6.936305], [107.779166, -6.93618], [107.779171, -6.936096], [107.779141, -6.935997], [107.779083, -6.935916], [107.779036, -6.935865], [107.779, -6.93581], [107.778983, -6.935757], [107.77896, -6.935707], [107.778932, -6.935637], [107.77892, -6.935585], [107.778913, -6.935548], [107.778903, -6.935525], [107.778864, -6.935445], [107.778812, -6.935378], [107.778762, -6.935341], [107.778728, -6.935262], [107.778689, -6.935196], [107.778655, -6.935105], [107.778585, -6.935006], [107.77855, -6.93491], [107.77851, -6.934835], [107.778505, -6.934708], [107.778508, -6.93463], [107.778523, -6.93458], [107.778526, -6.934516], [107.778532, -6.934423], [107.77851, -6.93433], [107.778467, -6.934239], [107.778411, -6.934135], [107.77833, -6.933986], [107.778293, -6.933832], [107.778261, -6.933664], [107.778239, -6.933557], [107.778218, -6.933446], [107.778151, -6.933146], [107.778131, -6.933081], [107.778079, -6.932762], [107.77806, -6.93264], [107.778026, -6.932486], [107.777993, -6.93231], [107.777958, -6.932166], [107.777948, -6.932117], [107.777928, -6.932061], [107.778101, -6.931994], [107.778259, -6.931932], [107.778314, -6.931909], [107.778465, -6.931852], [107.778487, -6.931843], [107.77854, -6.931822], [107.778568, -6.931812], [107.778701, -6.931754], [107.778956, -6.931654], [107.779034, -6.93162], [107.779138, -6.931572], [107.77927, -6.931502], [107.779276, -6.931499], [107.779614, -6.93137], [107.779796, -6.93129], [107.779956, -6.931226], [107.780075, -6.931165], [107.780219, -6.931067], [107.78027, -6.931026], [107.780362, -6.930851], [107.780395, -6.930718], [107.780399, -6.930642], [107.780417, -6.930489], [107.780401, -6.930249], [107.780432, -6.930023], [107.780449, -6.929871], [107.780507, -6.929695], [107.780531, -6.929635], [107.780578, -6.929569], [107.780679, -6.929445], [107.780781, -6.929326], [107.78092, -6.92914], [107.780977, -6.929049], [107.781076, -6.928896], [107.780986, -6.928789], [107.780938, -6.928718], [107.780891, -6.928618], [107.780854, -6.928554], [107.780832, -6.928417], [107.78086, -6.928228], [107.780884, -6.928028], [107.780879, -6.927801], [107.780858, -6.927652], [107.780842, -6.927596], [107.780814, -6.927534], [107.780793, -6.927494], [107.78077, -6.927449], [107.780716, -6.927345], [107.780659, -6.927259], [107.780585, -6.927083], [107.780534, -6.926951], [107.780424, -6.926755], [107.780326, -6.926589], [107.780207, -6.926315], [107.780129, -6.926154], [107.780103, -6.926116], [107.78004, -6.925923], [107.78, -6.925749], [107.779878, -6.925391], [107.779815, -6.925213], [107.779972, -6.925196], [107.78023, -6.925173], [107.780335, -6.925166], [107.780417, -6.925146], [107.780431, -6.925112], [107.780425, -6.925029], [107.780417, -6.924917], [107.78036, -6.924908], [107.780314, -6.924889], [107.780296, -6.924875], [107.780288, -6.924819], [107.780328, -6.924474], [107.780341, -6.92445], [107.780361, -6.924448], [107.780441, -6.924454], [107.780361, -6.924448], [107.780341, -6.92445], [107.780328, -6.924474], [107.780288, -6.924819], [107.780296, -6.924875], [107.780314, -6.924889], [107.78036, -6.924908], [107.780417, -6.924917], [107.780425, -6.925029], [107.780431, -6.925112], [107.780417, -6.925146], [107.780335, -6.925166], [107.78023, -6.925173], [107.779972, -6.925196], [107.779815, -6.925213], [107.779878, -6.925391], [107.78, -6.925749], [107.78004, -6.925923], [107.780103, -6.926116], [107.780129, -6.926154], [107.780207, -6.926315], [107.780326, -6.926589], [107.780424, -6.926755], [107.780534, -6.926951], [107.780585, -6.927083], [107.780659, -6.927259], [107.780716, -6.927345], [107.78077, -6.927449], [107.780793, -6.927494], [107.780814, -6.927534], [107.780842, -6.927596], [107.780858, -6.927652], [107.780879, -6.927801], [107.780884, -6.928028], [107.78086, -6.928228], [107.780832, -6.928417], [107.780854, -6.928554], [107.780891, -6.928618], [107.780938, -6.928718], [107.780986, -6.928789], [107.781076, -6.928896], [107.780977, -6.929049], [107.78092, -6.92914], [107.780781, -6.929326], [107.780679, -6.929445], [107.780578, -6.929569], [107.780531, -6.929635], [107.780507, -6.929695], [107.780449, -6.929871], [107.780432, -6.930023], [107.780401, -6.930249], [107.780417, -6.930489], [107.780399, -6.930642], [107.780395, -6.930718], [107.780362, -6.930851], [107.78027, -6.931026], [107.780219, -6.931067], [107.780075, -6.931165], [107.779956, -6.931226], [107.779796, -6.93129], [107.779614, -6.93137], [107.779276, -6.931499], [107.77927, -6.931502], [107.779138, -6.931572], [107.779034, -6.93162], [107.778956, -6.931654], [107.778701, -6.931754], [107.778568, -6.931812], [107.77854, -6.931822], [107.778487, -6.931843], [107.778465, -6.931852], [107.778314, -6.931909], [107.778259, -6.931932], [107.778101, -6.931994], [107.777928, -6.932061], [107.777444, -6.932234], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_3e41f7156683094fdaeee4a8c23d6601.addTo(feature_group_a3d17fb2924a1e553d7dddeb2c9b35c1);
+        
+    
+            feature_group_a3d17fb2924a1e553d7dddeb2c9b35c1.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_0efecc8801b703b6fabe05b28d941d47 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_93f14c415c223d6b416fcee7ef6ca825 = L.marker(
+                [-6.938522537098205, 107.76596723869574],
+                {
+}
+            ).addTo(feature_group_0efecc8801b703b6fabe05b28d941d47);
+        
+    
+            var div_icon_fde1268b6bd53b1817f73e966e33eb56 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:grey;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_93f14c415c223d6b416fcee7ef6ca825.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 8</b><br>Stop ke-1<br>Pelanggan 30
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_93f14c415c223d6b416fcee7ef6ca825.setIcon(div_icon_fde1268b6bd53b1817f73e966e33eb56);
+            
+    
+            var marker_ac70e20775560d5a32fff2283a66c11d = L.marker(
+                [-6.934664133039671, 107.77882120801289],
+                {
+}
+            ).addTo(feature_group_0efecc8801b703b6fabe05b28d941d47);
+        
+    
+            var div_icon_41990d62b5792dba0a0561909230f311 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:grey;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_ac70e20775560d5a32fff2283a66c11d.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 8</b><br>Stop ke-2<br>Pelanggan 29
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ac70e20775560d5a32fff2283a66c11d.setIcon(div_icon_41990d62b5792dba0a0561909230f311);
+            
+    
+            var marker_5b433e88948b765add143f43c617cd0e = L.marker(
+                [-6.935559521500639, 107.77756563835608],
+                {
+}
+            ).addTo(feature_group_0efecc8801b703b6fabe05b28d941d47);
+        
+    
+            var div_icon_9687227f56bed91d9a0da27e7795505a = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:grey;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        3\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_5b433e88948b765add143f43c617cd0e.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 8</b><br>Stop ke-3<br>Pelanggan 28
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5b433e88948b765add143f43c617cd0e.setIcon(div_icon_9687227f56bed91d9a0da27e7795505a);
+            
+    
+        function geo_json_fd43f492a2880e8e8f8300e7dbe64905_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "grey", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_fd43f492a2880e8e8f8300e7dbe64905_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_fd43f492a2880e8e8f8300e7dbe64905 = L.geoJson(null, {
+                onEachFeature: geo_json_fd43f492a2880e8e8f8300e7dbe64905_onEachFeature,
+            
+                style: geo_json_fd43f492a2880e8e8f8300e7dbe64905_styler,
+            ...{
+}
+        });
+
+        function geo_json_fd43f492a2880e8e8f8300e7dbe64905_add (data) {
+            geo_json_fd43f492a2880e8e8f8300e7dbe64905
+                .addData(data);
+        }
+            geo_json_fd43f492a2880e8e8f8300e7dbe64905_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.77543, -6.933538], [107.775332, -6.933425], [107.775271, -6.933348], [107.775226, -6.933294], [107.775187, -6.933245], [107.775136, -6.933196], [107.775082, -6.933118], [107.775035, -6.93302], [107.775007, -6.932916], [107.774818, -6.932968], [107.77461, -6.933016], [107.774449, -6.933058], [107.77439, -6.933075], [107.774254, -6.933112], [107.773895, -6.933206], [107.773614, -6.933275], [107.773508, -6.933305], [107.77336, -6.93335], [107.773198, -6.933398], [107.773016, -6.933438], [107.772739, -6.933499], [107.772505, -6.93357], [107.772304, -6.933626], [107.772171, -6.933671], [107.772097, -6.933694], [107.771976, -6.933734], [107.771955, -6.933741], [107.771722, -6.933818], [107.771653, -6.933836], [107.771435, -6.933909], [107.771376, -6.933929], [107.771243, -6.933968], [107.771113, -6.934011], [107.770961, -6.934064], [107.770916, -6.934077], [107.770541, -6.934197], [107.770236, -6.934292], [107.770185, -6.934307], [107.770034, -6.934352], [107.769987, -6.934364], [107.769876, -6.934396], [107.769737, -6.934434], [107.769662, -6.934455], [107.769468, -6.93451], [107.769265, -6.934565], [107.76923, -6.934576], [107.768942, -6.934658], [107.768796, -6.934702], [107.768696, -6.934726], [107.768459, -6.934792], [107.768412, -6.934805], [107.768379, -6.934814], [107.768216, -6.934859], [107.768205, -6.934862], [107.768037, -6.934913], [107.767827, -6.934979], [107.76762, -6.935037], [107.767577, -6.935049], [107.767397, -6.935112], [107.767283, -6.93515], [107.767293, -6.935268], [107.767282, -6.935382], [107.767241, -6.935514], [107.767132, -6.935778], [107.767048, -6.935971], [107.766976, -6.936102], [107.766867, -6.93635], [107.766769, -6.93656], [107.766722, -6.936672], [107.766593, -6.936948], [107.766488, -6.937146], [107.76642, -6.937294], [107.766398, -6.937341], [107.766352, -6.937502], [107.766291, -6.937646], [107.766182, -6.937856], [107.766142, -6.937943], [107.765999, -6.93825], [107.76595, -6.938331], [107.765914, -6.938386], [107.76587, -6.938477], [107.765914, -6.938386], [107.76595, -6.938331], [107.765999, -6.93825], [107.766142, -6.937943], [107.766182, -6.937856], [107.766291, -6.937646], [107.766352, -6.937502], [107.766398, -6.937341], [107.76642, -6.937294], [107.766488, -6.937146], [107.766593, -6.936948], [107.766722, -6.936672], [107.766769, -6.93656], [107.766867, -6.93635], [107.766976, -6.936102], [107.767048, -6.935971], [107.767132, -6.935778], [107.767241, -6.935514], [107.767282, -6.935382], [107.767293, -6.935268], [107.767283, -6.93515], [107.767397, -6.935112], [107.767577, -6.935049], [107.767525, -6.935004], [107.767508, -6.934957], [107.767513, -6.934889], [107.767575, -6.934779], [107.767628, -6.934685], [107.767735, -6.934493], [107.767813, -6.93441], [107.767827, -6.934394], [107.767906, -6.934321], [107.768158, -6.934255], [107.768497, -6.934157], [107.768833, -6.934058], [107.768873, -6.934048], [107.769676, -6.933846], [107.770399, -6.933623], [107.770827, -6.933491], [107.770946, -6.933439], [107.771381, -6.933246], [107.771443, -6.933217], [107.771769, -6.933075], [107.771803, -6.933059], [107.771857, -6.933035], [107.772113, -6.932935], [107.772166, -6.932914], [107.772216, -6.932895], [107.772817, -6.932654], [107.772898, -6.932619], [107.773302, -6.932458], [107.773445, -6.932403], [107.773504, -6.93238], [107.773584, -6.932352], [107.773693, -6.932311], [107.773807, -6.932267], [107.773968, -6.932204], [107.774036, -6.932176], [107.774098, -6.932151], [107.77421, -6.93211], [107.774313, -6.93207], [107.774425, -6.932024], [107.77452, -6.931989], [107.774681, -6.931924], [107.774889, -6.931847], [107.775127, -6.931767], [107.77542, -6.931697], [107.775519, -6.931683], [107.775856, -6.931646], [107.776095, -6.931629], [107.776137, -6.931633], [107.776164, -6.931635], [107.776192, -6.931643], [107.776219, -6.931666], [107.776234, -6.931697], [107.776236, -6.931719], [107.77628, -6.931775], [107.776357, -6.93215], [107.776407, -6.932427], [107.776416, -6.932455], [107.776437, -6.932485], [107.776475, -6.932513], [107.776509, -6.932528], [107.776745, -6.932468], [107.776925, -6.932412], [107.777208, -6.932325], [107.777419, -6.932244], [107.777444, -6.932234], [107.777928, -6.932061], [107.777948, -6.932117], [107.777958, -6.932166], [107.777993, -6.93231], [107.778026, -6.932486], [107.77806, -6.93264], [107.778079, -6.932762], [107.778131, -6.933081], [107.778151, -6.933146], [107.778218, -6.933446], [107.778239, -6.933557], [107.778261, -6.933664], [107.778293, -6.933832], [107.77833, -6.933986], [107.778411, -6.934135], [107.778467, -6.934239], [107.77851, -6.93433], [107.778532, -6.934423], [107.778526, -6.934516], [107.778523, -6.93458], [107.778508, -6.93463], [107.778505, -6.934708], [107.77851, -6.934835], [107.778843, -6.934736], [107.77851, -6.934835], [107.77855, -6.93491], [107.778585, -6.935006], [107.778655, -6.935105], [107.778689, -6.935196], [107.778728, -6.935262], [107.778762, -6.935341], [107.778343, -6.935384], [107.778293, -6.935393], [107.778223, -6.9354], [107.778138, -6.935392], [107.778107, -6.935373], [107.778096, -6.935326], [107.778088, -6.935275], [107.777857, -6.935227], [107.777364, -6.935156], [107.777154, -6.935117], [107.776708, -6.93504], [107.776668, -6.935256], [107.777027, -6.935307], [107.777247, -6.935395], [107.77761, -6.935485], [107.777583, -6.935566], [107.777581, -6.93557], [107.777547, -6.935685], [107.777524, -6.935787], [107.777492, -6.935874], [107.777439, -6.935984], [107.777392, -6.936083], [107.777274, -6.936058], [107.776997, -6.935999], [107.776571, -6.936047], [107.776308, -6.936047], [107.776085, -6.935994], [107.775774, -6.935968], [107.775783, -6.935895], [107.775787, -6.935716], [107.775798, -6.935538], [107.775802, -6.935383], [107.775796, -6.934869], [107.775702, -6.934858], [107.775699, -6.934854], [107.775698, -6.934849], [107.775697, -6.93484], [107.775693, -6.934728], [107.775622, -6.934367], [107.775676, -6.934344], [107.775695, -6.934287], [107.775691, -6.934223], [107.775663, -6.934152], [107.77564, -6.934063], [107.775648, -6.933969], [107.775626, -6.93385], [107.775579, -6.933728], [107.7755, -6.933633], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_fd43f492a2880e8e8f8300e7dbe64905.addTo(feature_group_0efecc8801b703b6fabe05b28d941d47);
+        
+    
+            feature_group_0efecc8801b703b6fabe05b28d941d47.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_089eb08399a3cfb820dd8fd9beac4346 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_201a67c58b0915d5ceca11626815808b = L.marker(
+                [-6.928046132647932, 107.77556176753096],
+                {
+}
+            ).addTo(feature_group_089eb08399a3cfb820dd8fd9beac4346);
+        
+    
+            var div_icon_f923a158acdb6fb9f5a84c2bf5067648 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:pink;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_201a67c58b0915d5ceca11626815808b.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 9</b><br>Stop ke-1<br>Pelanggan 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_201a67c58b0915d5ceca11626815808b.setIcon(div_icon_f923a158acdb6fb9f5a84c2bf5067648);
+            
+    
+            var marker_3b2c92b23e4dec3bf63b3c8a24c3095c = L.marker(
+                [-6.929086785492609, 107.77894027733004],
+                {
+}
+            ).addTo(feature_group_089eb08399a3cfb820dd8fd9beac4346);
+        
+    
+            var div_icon_c985b20a609abf7e0dc6dcec87c91962 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:pink;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        2\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_3b2c92b23e4dec3bf63b3c8a24c3095c.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 9</b><br>Stop ke-2<br>Pelanggan 32
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3b2c92b23e4dec3bf63b3c8a24c3095c.setIcon(div_icon_c985b20a609abf7e0dc6dcec87c91962);
+            
+    
+        function geo_json_0385115aef7007f553fe8ea0cd736834_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "pink", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_0385115aef7007f553fe8ea0cd736834_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_0385115aef7007f553fe8ea0cd736834 = L.geoJson(null, {
+                onEachFeature: geo_json_0385115aef7007f553fe8ea0cd736834_onEachFeature,
+            
+                style: geo_json_0385115aef7007f553fe8ea0cd736834_styler,
+            ...{
+}
+        });
+
+        function geo_json_0385115aef7007f553fe8ea0cd736834_add (data) {
+            geo_json_0385115aef7007f553fe8ea0cd736834
+                .addData(data);
+        }
+            geo_json_0385115aef7007f553fe8ea0cd736834_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.77543, -6.933538], [107.775332, -6.933425], [107.775271, -6.933348], [107.775226, -6.933294], [107.775187, -6.933245], [107.775136, -6.933196], [107.775082, -6.933118], [107.775035, -6.93302], [107.775007, -6.932916], [107.774818, -6.932968], [107.77461, -6.933016], [107.774449, -6.933058], [107.77439, -6.933075], [107.774374, -6.932897], [107.774472, -6.932722], [107.774439, -6.932508], [107.774067, -6.932203], [107.774036, -6.932176], [107.774098, -6.932151], [107.77421, -6.93211], [107.774313, -6.93207], [107.774425, -6.932024], [107.77452, -6.931989], [107.774681, -6.931924], [107.774889, -6.931847], [107.775127, -6.931767], [107.77542, -6.931697], [107.775519, -6.931683], [107.775856, -6.931646], [107.775922, -6.931599], [107.775933, -6.931589], [107.775953, -6.93157], [107.775982, -6.931528], [107.776008, -6.93148], [107.776083, -6.931331], [107.776116, -6.931225], [107.776105, -6.931215], [107.776097, -6.931167], [107.776096, -6.931139], [107.776074, -6.930924], [107.775948, -6.929997], [107.775938, -6.929935], [107.775905, -6.929923], [107.775876, -6.929904], [107.775852, -6.929879], [107.775835, -6.929849], [107.775824, -6.929809], [107.775825, -6.929767], [107.775838, -6.929727], [107.775861, -6.929693], [107.775893, -6.929666], [107.77576, -6.928911], [107.775741, -6.928874], [107.775743, -6.928833], [107.775763, -6.928802], [107.775796, -6.928784], [107.775833, -6.928783], [107.775866, -6.928799], [107.775959, -6.928573], [107.776002, -6.928456], [107.776028, -6.928329], [107.776028, -6.928292], [107.776006, -6.928204], [107.775961, -6.928084], [107.775905, -6.927956], [107.775886, -6.927911], [107.775905, -6.927956], [107.775961, -6.928084], [107.776006, -6.928204], [107.776028, -6.928292], [107.776028, -6.928329], [107.776002, -6.928456], [107.775959, -6.928573], [107.775866, -6.928799], [107.775887, -6.928826], [107.775894, -6.928859], [107.775886, -6.928892], [107.775991, -6.929644], [107.776042, -6.92966], [107.776083, -6.929693], [107.776111, -6.929738], [107.776121, -6.929781], [107.776117, -6.929826], [107.7761, -6.929868], [107.776071, -6.929902], [107.776033, -6.929926], [107.776041, -6.930003], [107.776221, -6.931127], [107.776228, -6.931166], [107.776233, -6.931209], [107.776209, -6.931219], [107.776177, -6.931222], [107.776148, -6.931224], [107.776116, -6.931225], [107.776083, -6.931331], [107.776008, -6.93148], [107.775982, -6.931528], [107.775953, -6.93157], [107.775933, -6.931589], [107.775922, -6.931599], [107.775856, -6.931646], [107.776095, -6.931629], [107.776137, -6.931633], [107.776164, -6.931635], [107.776192, -6.931643], [107.776219, -6.931666], [107.776234, -6.931697], [107.776236, -6.931719], [107.77628, -6.931775], [107.776357, -6.93215], [107.776407, -6.932427], [107.776416, -6.932455], [107.776437, -6.932485], [107.776475, -6.932513], [107.776509, -6.932528], [107.776745, -6.932468], [107.776925, -6.932412], [107.777208, -6.932325], [107.777419, -6.932244], [107.777444, -6.932234], [107.777928, -6.932061], [107.778101, -6.931994], [107.778259, -6.931932], [107.778314, -6.931909], [107.778465, -6.931852], [107.778487, -6.931843], [107.77854, -6.931822], [107.778568, -6.931812], [107.778701, -6.931754], [107.778956, -6.931654], [107.779034, -6.93162], [107.779138, -6.931572], [107.77927, -6.931502], [107.779276, -6.931499], [107.779126, -6.931184], [107.77912, -6.931175], [107.779076, -6.931041], [107.779065, -6.931013], [107.778992, -6.931033], [107.778979, -6.930977], [107.778971, -6.930861], [107.778942, -6.930703], [107.77892, -6.930645], [107.778906, -6.930594], [107.778908, -6.930577], [107.778883, -6.930514], [107.778901, -6.930501], [107.778938, -6.930491], [107.778966, -6.93048], [107.779127, -6.930426], [107.779163, -6.930404], [107.779288, -6.930258], [107.779315, -6.9302], [107.779356, -6.929971], [107.779395, -6.929761], [107.779421, -6.929633], [107.779386, -6.928914], [107.77938, -6.928705], [107.779332, -6.928707], [107.779312, -6.928704], [107.779293, -6.928691], [107.779266, -6.928644], [107.779216, -6.928552], [107.779185, -6.928487], [107.779134, -6.928439], [107.779059, -6.928418], [107.779, -6.928386], [107.778983, -6.928529], [107.778983, -6.928731], [107.778972, -6.929088], [107.778983, -6.928731], [107.778983, -6.928529], [107.779, -6.928386], [107.779059, -6.928418], [107.779134, -6.928439], [107.779185, -6.928487], [107.779216, -6.928552], [107.779266, -6.928644], [107.779293, -6.928691], [107.779312, -6.928704], [107.779332, -6.928707], [107.77938, -6.928705], [107.779386, -6.928914], [107.779421, -6.929633], [107.779395, -6.929761], [107.779356, -6.929971], [107.779315, -6.9302], [107.779288, -6.930258], [107.779163, -6.930404], [107.779127, -6.930426], [107.778966, -6.93048], [107.778938, -6.930491], [107.778901, -6.930501], [107.778883, -6.930514], [107.778908, -6.930577], [107.778906, -6.930594], [107.77892, -6.930645], [107.778942, -6.930703], [107.778971, -6.930861], [107.778979, -6.930977], [107.778992, -6.931033], [107.779065, -6.931013], [107.779076, -6.931041], [107.77912, -6.931175], [107.779126, -6.931184], [107.779276, -6.931499], [107.77927, -6.931502], [107.779138, -6.931572], [107.779034, -6.93162], [107.778956, -6.931654], [107.778701, -6.931754], [107.778568, -6.931812], [107.77854, -6.931822], [107.778487, -6.931843], [107.778465, -6.931852], [107.778314, -6.931909], [107.778259, -6.931932], [107.778101, -6.931994], [107.777928, -6.932061], [107.777444, -6.932234], [107.777419, -6.932244], [107.777208, -6.932325], [107.776925, -6.932412], [107.776745, -6.932468], [107.776509, -6.932528], [107.776391, -6.932557], [107.776265, -6.932585], [107.775836, -6.932691], [107.775288, -6.932834], [107.775007, -6.932916], [107.775035, -6.93302], [107.775082, -6.933118], [107.775136, -6.933196], [107.775187, -6.933245], [107.775226, -6.933294], [107.775271, -6.933348], [107.775332, -6.933425], [107.77543, -6.933538], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_0385115aef7007f553fe8ea0cd736834.addTo(feature_group_089eb08399a3cfb820dd8fd9beac4346);
+        
+    
+            feature_group_089eb08399a3cfb820dd8fd9beac4346.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var feature_group_884e27413596938cfbf09a4ded52c2eb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_2af0270f31583905e4a07a9c9cbf8a68 = L.marker(
+                [-6.934664133039671, 107.77882120801289],
+                {
+}
+            ).addTo(feature_group_884e27413596938cfbf09a4ded52c2eb);
+        
+    
+            var div_icon_ec4cffbf115e1fbbea1a0611adfca036 = L.divIcon({
+  "html": "\n                        \u003cdiv style=\"\n                            background:yellow;\n                            color:white;\n                            border-radius:50%;\n                            width:26px;\n                            height:26px;\n                            text-align:center;\n                            line-height:26px;\n                            font-size:12px;\n                            font-weight:bold;\n                            border:2px solid white;\n                        \"\u003e\n                        1\n                        \u003c/div\u003e\n                        ",
+  "className": "empty",
+});
+        
+    
+            marker_2af0270f31583905e4a07a9c9cbf8a68.bindTooltip(
+                `<div>
+                     <b>Rute Kendaraan 10</b><br>Stop ke-1<br>Pelanggan 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2af0270f31583905e4a07a9c9cbf8a68.setIcon(div_icon_ec4cffbf115e1fbbea1a0611adfca036);
+            
+    
+        function geo_json_7d837c8b48ec3b54f26c234ad424c0ac_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "yellow", "opacity": 0.8, "weight": 5};
+            }
+        }
+
+        function geo_json_7d837c8b48ec3b54f26c234ad424c0ac_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_7d837c8b48ec3b54f26c234ad424c0ac = L.geoJson(null, {
+                onEachFeature: geo_json_7d837c8b48ec3b54f26c234ad424c0ac_onEachFeature,
+            
+                style: geo_json_7d837c8b48ec3b54f26c234ad424c0ac_styler,
+            ...{
+}
+        });
+
+        function geo_json_7d837c8b48ec3b54f26c234ad424c0ac_add (data) {
+            geo_json_7d837c8b48ec3b54f26c234ad424c0ac
+                .addData(data);
+        }
+            geo_json_7d837c8b48ec3b54f26c234ad424c0ac_add({"features": [{"geometry": {"coordinates": [[107.775474, -6.933598], [107.7755, -6.933633], [107.775579, -6.933728], [107.775626, -6.93385], [107.775648, -6.933969], [107.77564, -6.934063], [107.775663, -6.934152], [107.775691, -6.934223], [107.775847, -6.93423], [107.775951, -6.934214], [107.776109, -6.934195], [107.776292, -6.934182], [107.776434, -6.934201], [107.776545, -6.934252], [107.77666, -6.934285], [107.776706, -6.93431], [107.77684, -6.934383], [107.776987, -6.934476], [107.777084, -6.934589], [107.777196, -6.934728], [107.777307, -6.934875], [107.777355, -6.934941], [107.777358, -6.935079], [107.777364, -6.935156], [107.777857, -6.935227], [107.778088, -6.935275], [107.778096, -6.935326], [107.778107, -6.935373], [107.778138, -6.935392], [107.778223, -6.9354], [107.778293, -6.935393], [107.778343, -6.935384], [107.778762, -6.935341], [107.778728, -6.935262], [107.778689, -6.935196], [107.778655, -6.935105], [107.778585, -6.935006], [107.77855, -6.93491], [107.77851, -6.934835], [107.778843, -6.934736], [107.77851, -6.934835], [107.77855, -6.93491], [107.778585, -6.935006], [107.778655, -6.935105], [107.778689, -6.935196], [107.778728, -6.935262], [107.778762, -6.935341], [107.778343, -6.935384], [107.778293, -6.935393], [107.778223, -6.9354], [107.778138, -6.935392], [107.778107, -6.935373], [107.778096, -6.935326], [107.778088, -6.935275], [107.777857, -6.935227], [107.777364, -6.935156], [107.777358, -6.935079], [107.777355, -6.934941], [107.777307, -6.934875], [107.777196, -6.934728], [107.777084, -6.934589], [107.776987, -6.934476], [107.77684, -6.934383], [107.776706, -6.93431], [107.77666, -6.934285], [107.776545, -6.934252], [107.776434, -6.934201], [107.776292, -6.934182], [107.776109, -6.934195], [107.775951, -6.934214], [107.775847, -6.93423], [107.775691, -6.934223], [107.775663, -6.934152], [107.77564, -6.934063], [107.775648, -6.933969], [107.775626, -6.93385], [107.775579, -6.933728], [107.7755, -6.933633], [107.775474, -6.933598]], "type": "LineString"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_7d837c8b48ec3b54f26c234ad424c0ac.addTo(feature_group_884e27413596938cfbf09a4ded52c2eb);
+        
+    
+            feature_group_884e27413596938cfbf09a4ded52c2eb.addTo(map_186220b3d0e41c864325daeba445ccc3);
+        
+    
+            var layer_control_5fecc14753bb8a2c238baef0e62977dd_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_0c6b80470d849d77f218c6884f2aa0ca,
+                },
+                overlays :  {
+                    "Partisi 1" : feature_group_736483f4de301e7ee8986b057ff0a0ef,
+                    "Partisi 2" : feature_group_0ea4af097c67a21a293fde1d34e44187,
+                    "Partisi 3" : feature_group_4fe77ff542b9de4610d773574704b26f,
+                    "Partisi 4" : feature_group_564603c2993c85f12a01263f24311e2a,
+                    "Partisi 5" : feature_group_30ad2c6a8f4eb7b2dd425ae48b111891,
+                    "Partisi 6" : feature_group_a4bc0d1d41ec324c5fb64d7fdb8b152b,
+                    "Partisi 7" : feature_group_a3d17fb2924a1e553d7dddeb2c9b35c1,
+                    "Partisi 8" : feature_group_0efecc8801b703b6fabe05b28d941d47,
+                    "Partisi 9" : feature_group_089eb08399a3cfb820dd8fd9beac4346,
+                    "Partisi 10" : feature_group_884e27413596938cfbf09a4ded52c2eb,
+                },
+            };
+            let layer_control_5fecc14753bb8a2c238baef0e62977dd = L.control.layers(
+                layer_control_5fecc14753bb8a2c238baef0e62977dd_layers.base_layers,
+                layer_control_5fecc14753bb8a2c238baef0e62977dd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_186220b3d0e41c864325daeba445ccc3);
+
+        
+</script>
+</body></html>
