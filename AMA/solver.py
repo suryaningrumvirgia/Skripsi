@@ -468,21 +468,21 @@ def adaptive_local_search_phase(population, fitness_array, als, config, generati
             improved = False
 
             # ===============================
-            # accept if improved
+            # Terima kalau lebih baik
             # ===============================
             if f_star < f_s:
                 eta = als.compute_eta(f_s, f_star)
 
-                # reward operator
+                # Reward operator
                 als.record_eta(best_operator, eta)
 
-                # update current solution
+                # Update solusi
                 s = s_star.copy()
                 f_s = f_star
                 improved = True
 
             # ===============================
-            # log cycle history
+            # Log cycle history
             # ===============================
             als.history.append({
                 "generation": generation,
@@ -507,12 +507,12 @@ def adaptive_local_search_phase(population, fitness_array, als, config, generati
                 "improved": improved,
             })
 
-        # simpan hasil individu setelah semua local search cycle selesai
+        # Simpan hasil individu setelah semua local search cycle selesai
         population[i] = s
         fitness_array[i] = f_s
 
     # ==========================================
-    # update operator probability per generation
+    # Update operator probability per generation
     # ==========================================
     als.update_probabilities_per_generation(generation)
     

@@ -48,22 +48,22 @@ def apply_random_immigrant_scheme(population, fitness_array, num_customers,
     """
     pop_size = population.shape[0]
     
-    # 1. Hitung keragaman dan rasio immigrant
+    # Hitung keragaman dan rasio immigrant
     xi = calculate_diversity_index(fitness_array)
     ri = calculate_immigrant_ratio(xi, ri_min, ri_max, alpha)
     
-    # 2. Tentukan berapa banyak individu yang akan diganti
+    # Tentukan berapa banyak individu yang akan diganti
     num_immigrants = int(np.round(ri * pop_size))
     
     # Jika tidak ada yang perlu diganti, kembalikan populasi asli (ditambah ri untuk Reporter)
     if num_immigrants == 0:
         return population, fitness_array, ri
         
-    # 3. Cari individu terburuk (fitness terbesar)
+    # Cari individu terburuk (fitness terbesar)
     sorted_indices = np.argsort(fitness_array)
     worst_indices = sorted_indices[-num_immigrants:]
     
-    # 4. Lakukan penggantian (Replacement)
+    # Lakukan penggantian (Replacement)
     for idx in worst_indices:
         # Bangkitkan imigran baru
         new_immigrant = generate_random_immigrant(num_customers)

@@ -1,21 +1,17 @@
 import folium
 import requests
 import pandas as pd
+import os
 
 # ==========================================
-# 1. MEMBACA DATA EXCEL
+# MEMBACA DATA EXCEL
 # ==========================================
 #df = pd.read_excel("DATA.xlsx", index_col=0, sheet_name="Sheet3", engine="openpyxl")
 # df = df.dropna(subset=["Longitude", "Latitude"])
 # df = df.reset_index(drop=True)
 
 def load_data_titik(file_path):
-    df = pd.read_excel(
-        file_path,
-        index_col=0,
-        sheet_name="Sheet2",
-        engine="openpyxl"
-    )
+    df = pd.read_excel(file_path, index_col=0, sheet_name="Sheet2",  engine="openpyxl")
 
     data_titik = {
         idx: (row["Longitude"], row["Latitude"])
@@ -24,7 +20,8 @@ def load_data_titik(file_path):
 
     return data_titik
 
-data_titik = load_data_titik("DATA.xlsx")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+data_titik = load_data_titik(os.path.join(BASE_DIR, "data", "DATA.xlsx"))
 
 print(f"[INFO] Total titik valid: {len(data_titik)}")
 
@@ -48,7 +45,7 @@ def ambil_jalur_rute(partisi_titik, data_koordinat):
         return None
 
 # ==========================================
-# 3. INISIALISASI PETA
+# INISIALISASI PETA
 # ==========================================
 m = folium.Map(location=[-6.9284, 107.7749], zoom_start=13, tiles="OpenStreetMap")
 
@@ -92,7 +89,7 @@ rute_kurir = {
 }
 
 # ==========================================
-# 4. PROSES & GAMBAR DI PETA
+# PROSES & GAMBAR DI PETA
 # ==========================================
 for nama_partisi, info in rute_kurir.items():
     # Membuat grup per rute agar bisa di-toggle (LayerControl)
@@ -112,7 +109,7 @@ for nama_partisi, info in rute_kurir.items():
         
         lat, lon = data_titik[titik_idx][1], data_titik[titik_idx][0]
         
-        # 1. Menyiapkan teks informasi untuk tooltip (mendukung format HTML dasar)
+        # Menyiapkan teks informasi untuk tooltip (mendukung format HTML dasar)
         info_tooltip = f"""
         <div style="font-family: Arial; font-size: 14px;">
             <b>{nama_partisi}</b><br>
@@ -121,7 +118,7 @@ for nama_partisi, info in rute_kurir.items():
         </div>
         """
         
-        # 2. Menambahkan marker dengan parameter tooltip
+        # Menambahkan marker dengan parameter tooltip
         folium.Marker(
             location=[lat, lon],
             tooltip=folium.Tooltip(info_tooltip, sticky=True),
@@ -133,9 +130,10 @@ for nama_partisi, info in rute_kurir.items():
     fg.add_to(m)
 
 # ==========================================
-# 5. FINALISASI
+# FINALISASI
 # ==========================================
+os.makedirs("peta", exist_ok=True)
 folium.LayerControl(collapsed=False).add_to(m)
-m.save("Peta_Rute_Awal.html")
+m.save("peta/Peta_Rute_Awal.html")
 
 print("[SUKSES] Peta berhasil dibuat: Peta_Rute_Awal.html")

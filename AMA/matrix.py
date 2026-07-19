@@ -1,9 +1,13 @@
 import pandas as pd
 import requests
 import sys
+import os
 
-# 1. Membaca file excel (memulai dari baris kedua sesuai header=1)
-df = pd.read_excel('DATA.xlsx', sheet_name='Sheet2', index_col=0, engine='openpyxl')
+# Membaca file excel (memulai dari baris kedua sesuai header=1)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(BASE_DIR, "data", "DATA.xlsx")
+
+df = pd.read_excel(file_path, sheet_name='Sheet2', index_col=0, engine='openpyxl')
 
 # Periksa apakah ada nilai NaN pada kolom koordinat
 if df[['Longitude', 'Latitude']].isnull().any(axis=1).any():
@@ -18,14 +22,14 @@ if df[['Longitude', 'Latitude']].isnull().any(axis=1).any():
 koordinat = df[['Longitude', 'Latitude']].to_numpy().tolist()
 jumlah_titik = len(koordinat)
 
-# 2. Rakit koordinat menjadi format URL (lon,lat;lon,lat;...)
+# Rakit koordinat menjadi format URL (lon,lat;lon,lat;...)
 koordinat_string = ";".join([f"{lon},{lat}" for lon, lat in koordinat])
 
-# 3. Tentukan URL Server
+# Tentukan URL Server
 url = f"http://localhost:5000/table/v1/bicycle/{koordinat_string}"
 params = {"annotations": "duration"}
 
-# 4. Kirim permintaan ke OSRM
+# Kirim permintaan ke OSRM
 try:
     print(f"Menghubungi server OSRM untuk {jumlah_titik} titik...")
     response = requests.get(url, params=params)
@@ -40,7 +44,7 @@ try:
     # OSRM mengembalikan waktu dalam satuan DETIK (List of Lists)
     matriks_waktu_detik = data['durations']
 
-    # 5. Mengubah ke DataFrame Pandas (Matriks n x n)
+    # Mengubah ke DataFrame Pandas (Matriks n x n)
     # Bagi 60 agar satuannya berubah menjadi menit
     df_waktu = pd.DataFrame(matriks_waktu_detik) / 60
 
@@ -55,11 +59,11 @@ try:
     os.makedirs("data", exist_ok=True)
 
     # Menyimpan output matriks ke file Excel
-    df_waktu.to_excel(f"data/Output_Matriks_Waktu.xlsx", index=False)
+    df_waktu.to_excel(f"data/Output_Matriks_Waktu.xlsx", index=True)
 
     # Menyimpan output matriks dalam detik ke file Excel
     df_waktu_detik = pd.DataFrame(matriks_waktu_detik)
-    df_waktu_detik.to_excel(f"data/Matriks_Waktu_Detik.xlsx", index=False)
+    df_waktu_detik.to_excel(f"data/Matriks_Waktu_Detik.xlsx", index=True)
 
 except requests.exceptions.ConnectionError:
     print("Gagal terhubung! Pastikan Docker OSRM sudah 'Up' dan port 5000 terbuka.")

@@ -85,9 +85,9 @@ def hitung_eta_rute(rute, waktu_berangkat, time_matrix, service_time):
         
         if node_tujuan != 0:
             jadwal[node_tujuan] = waktu_tiba
-            waktu_sekarang = waktu_tiba + service_time   # <-- service_time cuma untuk pelanggan
+            waktu_sekarang = waktu_tiba + service_time   # service_time cuma untuk pelanggan
         else:
-            waktu_sekarang = waktu_tiba                  # <-- depot: tanpa service_time
+            waktu_sekarang = waktu_tiba                  # depot: tanpa service_time
         
     return jadwal
 

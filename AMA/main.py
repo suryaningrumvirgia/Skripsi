@@ -13,20 +13,17 @@ from simulator import hitung_detail_rute, hitung_eta_rute, cari_titik_terkunci
 from representation import siapkan_data_vrp, is_valid_static_tour 
 
 @njit
+# List seed untuk fungsi yang menggunakan @njit
 def _seed_numba(seed):
     np.random.seed(seed)
 
+# Membaca data input
 def muat_data_excel(file_matriks, file_pelanggan):
     print(f"[ INFO ] Membaca matriks dari: {file_matriks}")
     print(f"[ INFO ] Membaca data pelanggan dari: {file_pelanggan}")
 
     try:
-        df_customers = pd.read_excel(
-            file_pelanggan,
-            sheet_name='Sheet2',
-            index_col=0,
-            engine='openpyxl'
-        )
+        df_customers = pd.read_excel(file_pelanggan, sheet_name='Sheet2', index_col=0, engine='openpyxl')
 
         cutoff_statis = 7.0 * 3600  # 07:00 dalam detik
 
@@ -40,33 +37,20 @@ def muat_data_excel(file_matriks, file_pelanggan):
         df_statis = df_customers[df_customers['ready_time'] <= cutoff_statis]
         df_dinamis = df_customers[df_customers['ready_time'] > cutoff_statis]
 
-        num_static = len(df_statis)
-        num_customers = len(df_customers)
+        num_static = len(df_statis) # Hitung jumlah pelanggan statis
+        num_customers = len(df_customers) # Hitung jumlah pelanggan keseluruhan
 
-        last_order_statis = (
-            df_statis['ready_time'].max()
-            if not df_statis.empty else 0
-        )
+        last_order_statis = (df_statis['ready_time'].max() if not df_statis.empty else 0)
 
         # Matriks waktu
-        df_time = pd.read_excel(
-            file_matriks,
-            sheet_name='Sheet1',
-            index_col=0,
-            engine='openpyxl'
-        )
+        df_time = pd.read_excel(file_matriks, sheet_name='Sheet1', index_col=0, engine='openpyxl')
         time_matrix = df_time.to_numpy(dtype=np.float64)
 
         # Demand & SLA
         demands = df_customers['Jumlah Pesanan'].to_numpy(dtype=np.float64)
         sla_limits = df_customers['SLA Limit'].to_numpy(dtype=np.float64)
 
-        return (
-            time_matrix, demands, sla_limits,
-            num_customers, num_static,
-            df_customers, df_statis,
-            df_dinamis, last_order_statis
-        )
+        return (time_matrix, demands, sla_limits, num_customers, num_static, df_customers, df_statis, df_dinamis, last_order_statis)
 
     except Exception as e:
         print(f"[ ERROR ] Terjadi kesalahan saat membaca Excel: {e}")
@@ -85,7 +69,7 @@ def hitung_beban_tersisa(rute_saat_ini, demands_global):
 
 def main():
     # ==========================================
-    # 1. PERSIAPAN DATA UTAMA (GLOBAL)
+    # PERSIAPAN DATA UTAMA (GLOBAL)
     # ==========================================
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     NAMA_FILE_PELANGGAN = os.path.join(BASE_DIR, "data", "DATA.xlsx")
@@ -129,7 +113,7 @@ def main():
         start_seed_time = time.time()
 
         # ==========================================
-        # 2. FASE 1: RUTE AWAL STATIS
+        # FASE 1: RUTE AWAL STATIS
         # ==========================================        
         list_id_statis = df_statis.index.tolist()
         if 0 in list_id_statis:
@@ -206,7 +190,7 @@ def main():
         })
 
         # ==========================================
-        # 3. FASE 2: LOOPING MESIN WAKTU (DINAMIS)
+        # FASE 2: LOOPING MESIN WAKTU (DINAMIS)
         # ==========================================
         jadwal_dinamis = []
         if not df_dinamis.empty:
@@ -441,7 +425,7 @@ def main():
         all_seed_trip.append(seed_trip)
 
     # ==========================================
-    # 4. HASIL TERBAIK & VISUALISASI PETA
+    # HASIL TERBAIK & VISUALISASI PETA
     # ==========================================    
     best_idx = np.argmin(all_results)
     # idx = 9
@@ -510,7 +494,7 @@ def main():
     gambar_rute_osrm(
         rute_per_kendaraan,
         data_titik,
-        output_filename="best_seed_route.html"
+        output_filename="peta/best_seed_route.html"
     )
 
 if __name__ == "__main__":
