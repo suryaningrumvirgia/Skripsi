@@ -1,4 +1,5 @@
 import folium
+from folium.plugins import PolyLineTextPath
 import requests
 import pandas as pd
 import os
@@ -83,8 +84,8 @@ rute_kurir = {
     "Partisi 5": {"warna": "gray", "titik": [0, 16, 19, 21, 0]},
     "Partisi 6": {"warna": "orange", "titik":[0, 17, 25, 24, 20, 0]},
     "Partisi 7": {"warna": "brown", "titik": [0, 23, 26, 22, 0]},
-    "Partisi 8": {"warna": "pink", "titik": [0, 28, 29, 27, 0]},
-    "Partisi 9": {"warna": "yellow", "titik": [0, 30, 31, 32, 0]},
+    "Partisi 8": {"warna": "indigo", "titik": [0, 28, 29, 27, 0]},
+    "Partisi 9": {"warna": "teal", "titik": [0, 30, 31, 32, 0]},
     "Partisi 10": {"warna": "blue", "titik": [0, 33, 0]},
 }
 
@@ -101,7 +102,20 @@ for nama_partisi, info in rute_kurir.items():
 
     if jalur:
         # Tambahkan jalur ke grup
-        folium.PolyLine(jalur, color=warna, weight=4, opacity=0.7, tooltip=nama_partisi).add_to(fg)
+        layer_rute = folium.PolyLine(jalur, color=warna, weight=4, opacity=0.7, tooltip=nama_partisi).add_to(fg)
+
+        # Tambahkan panah arah jalur
+        PolyLineTextPath(
+                        layer_rute,
+                        '       ►      ',
+                        repeat=True,
+                        offset=7,
+                        attributes={
+                            'fill': warna,
+                            'font-weight': 'bold',
+                            'font-size': '16'
+                        }
+                    ).add_to(fg)
         
         # Tambahkan marker urutan ke grup
     for i, titik_idx in enumerate(titik_rute[:-1]):
@@ -123,7 +137,21 @@ for nama_partisi, info in rute_kurir.items():
             location=[lat, lon],
             tooltip=folium.Tooltip(info_tooltip, sticky=True),
             icon=folium.DivIcon(
-                html=f'<div style="background:{warna}; color:white; border-radius:50%; width:20px; height:20px; text-align:center; font-size:12px; font-weight:bold; border:2px solid white;">{i}</div>'
+                html=f"""
+                <div style="
+                    background:{warna}; 
+                    color:white; 
+                    border-radius:50%; 
+                    width:20px; 
+                    height:20px; 
+                    text-align:center; 
+                    font-size:12px; 
+                    font-weight:bold; 
+                    border:2px solid white;
+                ">
+                {titik_idx}
+                </div>
+                """
             )
         ).add_to(fg)
             

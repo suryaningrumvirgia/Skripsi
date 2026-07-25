@@ -1,5 +1,6 @@
 import requests
 import folium
+from folium.plugins import PolyLineTextPath
 import numpy as np
 from initial_route import data_titik
 
@@ -19,8 +20,8 @@ def gambar_rute_osrm(routes, coords, output_filename="peta_rute_dvrp.html"):
                 background: red;
                 color: white;
                 border-radius: 50%;
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
                 text-align: center;
                 border: 2px solid white;
                 display: flex;
@@ -31,10 +32,10 @@ def gambar_rute_osrm(routes, coords, output_filename="peta_rute_dvrp.html"):
                 <i class="fa fa-home" style="font-size: 12px;"></i> 
             </div>
         '''
-    )
-).add_to(m)
+        )
+    ).add_to(m)
 
-    warna_rute = ['blue', 'green', 'red', 'purple', 'orange', 'brown', 'black', 'grey', 'pink', 'yellow']
+    warna_rute = ['blue', 'green', 'red', 'purple', '#4B0082', 'brown', 'black', '#4d4d4d', '#e91e63', '#b8860b']
 
     for idx, rute in enumerate(routes):
         fg = folium.FeatureGroup(name=f"Partisi {idx+1}")
@@ -59,15 +60,15 @@ def gambar_rute_osrm(routes, coords, output_filename="peta_rute_dvrp.html"):
                             background:{warna};
                             color:white;
                             border-radius:50%;
-                            width:26px;
-                            height:26px;
+                            width:30px;
+                            height:30px;
                             text-align:center;
                             line-height:26px;
-                            font-size:12px;
+                            font-size:15px;
                             font-weight:bold;
                             border:2px solid white;
                         ">
-                        {seq}
+                        {node}
                         </div>
                         """
                     )
@@ -84,12 +85,24 @@ def gambar_rute_osrm(routes, coords, output_filename="peta_rute_dvrp.html"):
                 if data["code"] == "Ok":
                     jalur_geojson = data["routes"][0]["geometry"]
 
-                    folium.GeoJson(
+                    layer_rute = folium.GeoJson(
                         jalur_geojson,
                         style_function=lambda x, warna=warna: {
                             'color': warna,
                             'weight': 5,
                             'opacity': 0.8
+                        }
+                    ).add_to(fg)
+
+                    PolyLineTextPath(
+                        layer_rute,
+                        '       ►       ',
+                        repeat=True,
+                        offset=8,
+                        attributes={
+                            'fill': warna,
+                            'font-weight': 'bold',
+                            'font-size': '16'
                         }
                     ).add_to(fg)
 

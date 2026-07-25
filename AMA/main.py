@@ -428,7 +428,6 @@ def main():
     # HASIL TERBAIK & VISUALISASI PETA
     # ==========================================    
     best_idx = np.argmin(all_results)
-    # idx = 9
     best_detail = all_seed_details[best_idx]
 
     arrival_log = best_detail["arrival_log"]
