@@ -31,9 +31,6 @@ class Config(NamedTuple):
     time_matrix_global: np.ndarray = None
     customer_map: list = None
     pelanggan_baru: list = None
-    time_matrix_global: np.ndarray = None
-    customer_map: list = None
-    pelanggan_baru: list = None
     dist_to_depot: np.ndarray = None
     dist_from_depot: np.ndarray = None
     is_new_customer: np.ndarray = None
